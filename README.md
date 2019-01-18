@@ -1,6 +1,6 @@
 # IOTA React Components
 
-This package contains React components that implement the IOTA Css Theme Styles.
+This package contains React components that implement the IOTA Css Theme Styles <https://github.com/iotaledger/iota-css-theme>.
 
 ## Install
 
