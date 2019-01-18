@@ -1,0 +1,35 @@
+.alert {
+  padding: 20px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  background: #ffffff;
+  font-weight: 600;
+  word-break: break-all;
+
+  &.warning {
+    border-color: var(--warning);
+    color: var(--warning);
+  }
+
+  &.danger {
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+
+  &.info {
+    border-color: var(--info);
+    color: var(--info);
+  }
+
+  &.success {
+    border-color: var(--success);
+    color: var(--success);
+  }
+}
+
+.buttons {
+  .alert {
+    margin-top: 12px;
+    margin-left: 8px;
+  }
+}

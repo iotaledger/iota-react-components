@@ -1,0 +1,50 @@
+.qr-reader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  .qr-reader-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+  }
+
+  h1 {
+    position: relative;
+    margin: 20px;
+  }
+
+  p {
+    position: relative;
+    margin: 10px 30px 10px 30px;
+  }
+
+  form {
+    position: relative;
+    max-width: 50vh;
+    margin-left: 30px;
+  }
+
+  button {
+    position: relative;
+    margin-left: 30px;
+  }
+
+  .qr-reader-scan {
+    max-width: 50vh;
+    margin: 10px 30px 10px 30px;
+
+    section {
+      div {
+        border: 8px solid var(--tealish) !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}

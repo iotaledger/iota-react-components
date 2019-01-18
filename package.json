@@ -1,0 +1,58 @@
+{
+    "name": "iota-react-components",
+    "description": "Common React UI Components for IOTA Css Theme",
+    "version": "0.1.0",
+    "author": "Martyn Janes <martyn.janes@iota.org>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iotaledger/iota-react-components.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@iota/core": "^1.0.0-beta.8",
+        "@types/react-router-dom": "^4.3.1",
+        "classnames": "^2.2.6",
+        "iota-css-theme": "git+https://github.com/iotaledger/iota-css-theme.git",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "react-lottie": "^1.2.3",
+        "react-qr-reader": "^2.1.2",
+        "react-router-dom": "^4.3.1",
+        "react-scripts": "^2.1.3"
+    },
+    "scripts": {
+        "build-clean": "rimraf ./dist",
+        "build-lint": "tslint --project ./tsconfig.json",
+        "build-compile": "tsc",
+        "build-watch": "tsc --watch",
+        "build-copy-sass": "copyfiles -u 1 src/**/*.scss dist/",
+        "build": "run-s build-clean build-lint build-compile build-copy-sass",
+        "sass-lint": "sass-lint -v -c ./.sass-lint.yml"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "@types/classnames": "^2.2.7",
+        "@types/node": "^10.12.18",
+        "@types/react": "^16.7.20",
+        "@types/react-dom": "^16.0.11",
+        "@types/react-lottie": "^1.2.1",
+        "@types/react-qr-reader": "^2.1.2",
+        "copyfiles": "^2.1.0",
+        "node-sass": "^4.11.0",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^2.6.3",
+        "sass-lint": "^1.12.1",
+        "tslint": "^5.12.1",
+        "tslint-eslint-rules": "^5.4.0",
+        "tslint-microsoft-contrib": "^6.0.0",
+        "tslint-react": "^3.6.0",
+        "typescript": "^3.2.4"
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+}
