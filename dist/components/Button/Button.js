@@ -44,7 +44,7 @@ var Button = /** @class */ (function (_super) {
      */
     Button.prototype.render = function () {
         var _a, _b;
-        return (react_1.default.createElement("button", { className: classnames_1.default("button", (_a = {}, _a["button--" + this.props.color] = this.props.color, _a), (_b = {}, _b["button--" + this.props.size] = this.props.size && this.props.size !== "normal", _b)), onClick: this.props.onClick, disabled: this.props.disabled }, this.props.children));
+        return (react_1.default.createElement("button", { className: classnames_1.default("button", (_a = {}, _a["button--" + this.props.color] = this.props.color, _a), (_b = {}, _b["button--" + this.props.size] = this.props.size && this.props.size !== "normal", _b), { "button--long": this.props.long }), onClick: this.props.onClick, disabled: this.props.disabled }, this.props.children));
     };
     return Button;
 }(react_1.Component));

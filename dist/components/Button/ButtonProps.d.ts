@@ -18,6 +18,10 @@ export interface ButtonProps {
      */
     size?: ButtonSize;
     /**
+     * Is the button long style - will apply word break.
+     */
+    long?: boolean;
+    /**
      * Is the button disabled.
      */
     disabled?: boolean;

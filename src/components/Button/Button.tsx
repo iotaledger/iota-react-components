@@ -26,7 +26,8 @@ export class Button extends Component<ButtonProps> {
                     classNames(
                         "button",
                         { [`button--${this.props.color}`]: this.props.color },
-                        { [`button--${this.props.size}`]: this.props.size && this.props.size !== "normal" }
+                        { [`button--${this.props.size}`]: this.props.size && this.props.size !== "normal" },
+                        { "button--long": this.props.long }
                     )
                 }
                 onClick={this.props.onClick}
