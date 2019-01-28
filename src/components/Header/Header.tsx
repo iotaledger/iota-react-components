@@ -19,7 +19,9 @@ export class Header extends React.Component<HeaderProps> {
             <header className={classNames("header", { compact: this.props.compact })}>
                 <div className="header__wrapper">
                     <section className="header__head">
-                        <img className="header__brand" src={this.props.logo} alt="IOTA" />
+                        <a href="/">
+                            <img className="header__brand" src={this.props.logo} alt="IOTA" />
+                        </a>
                         <div>
                             <div className="top-header">
                                 <ul className="top-header__items">

@@ -34,7 +34,8 @@ var Header = /** @class */ (function (_super) {
         return (react_1.default.createElement("header", { className: classnames_1.default("header", { compact: this.props.compact }) },
             react_1.default.createElement("div", { className: "header__wrapper" },
                 react_1.default.createElement("section", { className: "header__head" },
-                    react_1.default.createElement("img", { className: "header__brand", src: this.props.logo, alt: "IOTA" }),
+                    react_1.default.createElement("a", { href: "/" },
+                        react_1.default.createElement("img", { className: "header__brand", src: this.props.logo, alt: "IOTA" })),
                     react_1.default.createElement("div", null,
                         react_1.default.createElement("div", { className: "top-header" },
                             react_1.default.createElement("ul", { className: "top-header__items" }, this.props.topLinks.map(function (title, index) {
