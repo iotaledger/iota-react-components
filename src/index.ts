@@ -19,6 +19,8 @@ export * from "./components/Heading/Heading";
 export * from "./components/Heading/HeadingProps";
 export * from "./components/Link/Link";
 export * from "./components/Link/LinkProps";
+export * from "./components/Pagination/Pagination";
+export * from "./components/Pagination/PaginationProps";
 export * from "./components/QRReader/QRReader";
 export * from "./components/QRReader/QRReaderProps";
 export * from "./components/Select/Select";

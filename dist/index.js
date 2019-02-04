@@ -12,6 +12,7 @@ __export(require("./components/FormButtons/FormButtons"));
 __export(require("./components/Header/Header"));
 __export(require("./components/Heading/Heading"));
 __export(require("./components/Link/Link"));
+__export(require("./components/Pagination/Pagination"));
 __export(require("./components/QRReader/QRReader"));
 __export(require("./components/Select/Select"));
 __export(require("./components/Spinner/Spinner"));
