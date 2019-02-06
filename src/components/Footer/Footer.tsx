@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Heading } from "../Heading/Heading";
 import { Link } from "../Link/Link";
 import { Select } from "../Select/Select";
@@ -29,13 +30,23 @@ export class Footer extends React.Component<FooterProps> {
                                     {
                                         links.map(({ href, text }) =>
                                             <React.Fragment key={text}>
-                                                <Link
-                                                    href={href}
-                                                    className="footer-top-content__link"
-                                                    target={href.startsWith("http") ? "_blank" : ""}
-                                                >
-                                                    {text}
-                                                </Link>
+                                                {href.startsWith("http") && (
+                                                    <Link
+                                                        href={href}
+                                                        className="footer-top-content__link"
+                                                        target="_blank"
+                                                    >
+                                                        {text}
+                                                    </Link>
+                                                )}
+                                                {!href.startsWith("http") && (
+                                                    <RouterLink
+                                                        to={href}
+                                                        className="footer-top-content__link"
+                                                    >
+                                                        {text}
+                                                    </RouterLink>
+                                                )}
                                             </React.Fragment>
                                         )}
                                 </section>

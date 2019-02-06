@@ -17,6 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var react_router_dom_1 = require("react-router-dom");
 var Heading_1 = require("../Heading/Heading");
 var Link_1 = require("../Link/Link");
 var Select_1 = require("../Select/Select");
@@ -44,7 +45,8 @@ var Footer = /** @class */ (function (_super) {
                         links.map(function (_a) {
                             var href = _a.href, text = _a.text;
                             return react_1.default.createElement(react_1.default.Fragment, { key: text },
-                                react_1.default.createElement(Link_1.Link, { href: href, className: "footer-top-content__link", target: href.startsWith("http") ? "_blank" : "" }, text));
+                                href.startsWith("http") && (react_1.default.createElement(Link_1.Link, { href: href, className: "footer-top-content__link", target: "_blank" }, text)),
+                                !href.startsWith("http") && (react_1.default.createElement(react_router_dom_1.Link, { to: href, className: "footer-top-content__link" }, text)));
                         }));
                 })),
                 react_1.default.createElement("div", { className: "footer-top-content__dropdown-wrapper" },
