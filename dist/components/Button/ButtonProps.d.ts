@@ -26,6 +26,10 @@ export interface ButtonProps {
      */
     disabled?: boolean;
     /**
+     * Disable any case changes.
+     */
+    disableCaseStyle?: boolean;
+    /**
      * Event handler triggered on click.
      */
     onClick?: React.MouseEventHandler<any>;
