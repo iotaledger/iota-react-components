@@ -35,8 +35,9 @@ export class Pagination extends Component<PaginationProps, PaginationState> {
     public render(): ReactNode {
         return this.state.pages.length > 1 ? (
             <ul className="pagination">
-                {this.state.pages.map(p => (
+                {this.state.pages.map((p, idx) => (
                     <li
+                        key={idx}
                         className={
                             classNames(
                                 "pagination-item",

@@ -55,7 +55,7 @@ var Pagination = /** @class */ (function (_super) {
      */
     Pagination.prototype.render = function () {
         var _this = this;
-        return this.state.pages.length > 1 ? (react_1.default.createElement("ul", { className: "pagination" }, this.state.pages.map(function (p) { return (react_1.default.createElement("li", { className: classnames_1.default("pagination-item", { "pagination-item--selected": _this.props.page === p - 1 }) },
+        return this.state.pages.length > 1 ? (react_1.default.createElement("ul", { className: "pagination" }, this.state.pages.map(function (p, idx) { return (react_1.default.createElement("li", { key: idx, className: classnames_1.default("pagination-item", { "pagination-item--selected": _this.props.page === p - 1 }) },
             p === -1 && (react_1.default.createElement("span", null, "...")),
             p !== -1 && (react_1.default.createElement("a", { onClick: function () { return _this.handleClick(p - 1); }, role: "button" }, p)))); }))) : null;
     };
