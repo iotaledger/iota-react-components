@@ -8,7 +8,7 @@ export interface StatusMessageProps {
     /**
      * The color to display the status message.
      */
-    color: StatusMessageColor;
+    color?: StatusMessageColor;
     /**
      * Show a busy spinner.
      */
