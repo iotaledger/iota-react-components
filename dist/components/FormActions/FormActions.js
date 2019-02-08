@@ -22,25 +22,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 /**
- * Class FormButtons.
+ * Class FormActions.
  */
-var FormButtons = /** @class */ (function (_super) {
-    __extends(FormButtons, _super);
+var FormActions = /** @class */ (function (_super) {
+    __extends(FormActions, _super);
     /**
-     * Create a new instance of FormButtons.
+     * Create a new instance of FormActions.
      * @param props The properties.
      * @param context The context.
      */
-    function FormButtons(props, context) {
+    function FormActions(props, context) {
         return _super.call(this, props, context) || this;
     }
     /**
      * Render the component.
      * @returns The node to render.
      */
-    FormButtons.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "buttons" }, this.props.children));
+    FormActions.prototype.render = function () {
+        return (react_1.default.createElement("div", { className: "form--actions" }, this.props.children));
     };
-    return FormButtons;
+    return FormActions;
 }(react_1.Component));
-exports.FormButtons = FormButtons;
+exports.FormActions = FormActions;

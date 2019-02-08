@@ -1,16 +1,16 @@
 import React, { Component, ReactNode } from "react";
-import { FormButtonsProps } from "./FormButtonsProps";
+import { FormActionsProps } from "./FormActionsProps";
 
 /**
- * Class FormButtons.
+ * Class FormActions.
  */
-export class FormButtons extends Component<FormButtonsProps> {
+export class FormActions extends Component<FormActionsProps> {
     /**
-     * Create a new instance of FormButtons.
+     * Create a new instance of FormActions.
      * @param props The properties.
      * @param context The context.
      */
-    constructor(props: FormButtonsProps, context: {}) {
+    constructor(props: FormActionsProps, context: {}) {
         super(props, context);
     }
 
@@ -20,7 +20,7 @@ export class FormButtons extends Component<FormButtonsProps> {
      */
     public render(): ReactNode {
         return (
-            <div className="buttons">
+            <div className="form--actions">
                 {this.props.children}
             </div>
         );

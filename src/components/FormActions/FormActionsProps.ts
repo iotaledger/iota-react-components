@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 /**
- * The properties for the FormButtons component.
+ * The properties for the FormActions component.
  */
-export interface FormButtonsProps {
+export interface FormActionsProps {
     /**
      * The children elements to display as content.
      */

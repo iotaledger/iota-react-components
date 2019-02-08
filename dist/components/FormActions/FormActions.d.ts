@@ -1,15 +1,15 @@
 import { Component, ReactNode } from "react";
-import { FormButtonsProps } from "./FormButtonsProps";
+import { FormActionsProps } from "./FormActionsProps";
 /**
- * Class FormButtons.
+ * Class FormActions.
  */
-export declare class FormButtons extends Component<FormButtonsProps> {
+export declare class FormActions extends Component<FormActionsProps> {
     /**
-     * Create a new instance of FormButtons.
+     * Create a new instance of FormActions.
      * @param props The properties.
      * @param context The context.
      */
-    constructor(props: FormButtonsProps, context: {});
+    constructor(props: FormActionsProps, context: {});
     /**
      * Render the component.
      * @returns The node to render.
