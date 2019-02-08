@@ -25,28 +25,28 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
-require("./Alert.scss");
+var Spinner_1 = require("../Spinner/Spinner");
 /**
- * Class to display a styled alert box.
+ * Class to display a styled status message.
  */
-var Alert = /** @class */ (function (_super) {
-    __extends(Alert, _super);
+var StatusMessage = /** @class */ (function (_super) {
+    __extends(StatusMessage, _super);
     /**
-     * Create a new instance of Alert.
+     * Create a new instance of StatusMessage.
      * @param props The props.
      */
-    function Alert(props) {
+    function StatusMessage(props) {
         return _super.call(this, props) || this;
     }
     /**
      * Render the component.
      * @returns The node to render.
      */
-    Alert.prototype.render = function () {
-        return (react_1.default.createElement(react_1.default.Fragment, null, this.props.status && (react_1.default.createElement("div", { className: classnames_1.default("alert", this.props.color) }, this.props.status.split("\n").map(function (s, idx) { return (react_1.default.createElement(react_1.default.Fragment, { key: idx },
-            react_1.default.createElement("span", null, s),
-            react_1.default.createElement("br", null))); })))));
+    StatusMessage.prototype.render = function () {
+        return this.props.status ? (react_1.default.createElement("div", { className: classnames_1.default("status-message", this.props.color) },
+            this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
+            react_1.default.createElement("div", { className: "status" }, this.props.status.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); })))) : null;
     };
-    return Alert;
+    return StatusMessage;
 }(react_1.Component));
-exports.Alert = Alert;
+exports.StatusMessage = StatusMessage;

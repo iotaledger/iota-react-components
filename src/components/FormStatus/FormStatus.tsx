@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
-import { Alert } from "../Alert/Alert";
 import { Spinner } from "../Spinner/Spinner";
 import { FormStatusProps } from "./FormStatusProps";
 
@@ -32,7 +31,11 @@ export class FormStatus extends Component<FormStatusProps> {
                         <Spinner />
                     )}
 
-                    {this.props.message}
+                    <div className="form--status-message">
+                        {this.props.message.split("\n").map((s, idx) => (
+                            <span key={idx}>{s}</span>
+                        ))}
+                    </div>
                 </div>
             </div>
         ) : null;

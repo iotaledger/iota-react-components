@@ -48,7 +48,7 @@ var FormStatus = /** @class */ (function (_super) {
             !this.props.fullWidth && (react_1.default.createElement("label", null)),
             react_1.default.createElement("div", { className: classnames_1.default("form--status-content", { "form--status-content__error": this.props.isError }) },
                 this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
-                this.props.message))) : null;
+                react_1.default.createElement("div", { className: "form--status-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); }))))) : null;
     };
     return FormStatus;
 }(react_1.Component));
