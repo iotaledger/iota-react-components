@@ -28,7 +28,7 @@ export class Spinner extends Component {
         };
 
         return (
-            <div style={{display: "inline-block"}}>
+            <div className="spinner" style={{display: "inline-block"}}>
                 <Lottie
                     options={spinOptions}
                     width={50}

@@ -50,7 +50,7 @@ var Spinner = /** @class */ (function (_super) {
             animationData: spinner_loader_json_1.default,
             rendererSettings: renderSettings
         };
-        return (react_1.default.createElement("div", { style: { display: "inline-block" } },
+        return (react_1.default.createElement("div", { className: "spinner", style: { display: "inline-block" } },
             react_1.default.createElement(react_lottie_1.default, { options: spinOptions, width: 50, height: 50 })));
     };
     return Spinner;
