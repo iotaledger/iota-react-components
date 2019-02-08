@@ -7,5 +7,5 @@ export declare class ClipboardHelper {
      * @param text The text to copy.
      * @returns True id the text was copied.
      */
-    static copy(text: string): boolean;
+    static copy(text: string | undefined): boolean;
 }
