@@ -39,7 +39,9 @@ var FormActions = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     FormActions.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "form--actions" }, this.props.children));
+        return (react_1.default.createElement("div", { className: "form--actions" },
+            react_1.default.createElement("div", { className: "form--actions--spacer" }),
+            react_1.default.createElement("div", { className: "form--actions--content" }, this.props.children)));
     };
     return FormActions;
 }(react_1.Component));

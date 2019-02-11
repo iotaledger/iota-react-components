@@ -21,7 +21,10 @@ export class FormActions extends Component<FormActionsProps> {
     public render(): ReactNode {
         return (
             <div className="form--actions">
-                {this.props.children}
+                <div className="form--actions--spacer" />
+                <div className="form--actions--content">
+                    {this.props.children}
+                </div>
             </div>
         );
     }
