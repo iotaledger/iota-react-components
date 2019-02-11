@@ -22,7 +22,7 @@ export declare class Pagination extends Component<PaginationProps, PaginationSta
      */
     render(): ReactNode;
     /**
-     * Calcualte the pagination numbers.
+     * Calculate the pagination numbers.
      * @returns The array of page numbers.
      */
     private calculatePagination;

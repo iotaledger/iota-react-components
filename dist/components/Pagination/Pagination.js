@@ -60,7 +60,7 @@ var Pagination = /** @class */ (function (_super) {
             p !== -1 && (react_1.default.createElement("a", { onClick: function () { return _this.handleClick(p - 1); }, role: "button" }, p)))); }))) : null;
     };
     /**
-     * Calcualte the pagination numbers.
+     * Calculate the pagination numbers.
      * @returns The array of page numbers.
      */
     Pagination.prototype.calculatePagination = function () {

@@ -58,7 +58,7 @@ export class Pagination extends Component<PaginationProps, PaginationState> {
     }
 
     /**
-     * Calcualte the pagination numbers.
+     * Calculate the pagination numbers.
      * @returns The array of page numbers.
      */
     private calculatePagination(): number[] {
