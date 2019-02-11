@@ -51,8 +51,10 @@ var Success = /** @class */ (function (_super) {
             loop: false,
             rendererSettings: renderSettings
         };
-        return (react_1.default.createElement("div", { style: { display: "inline-block" } },
-            react_1.default.createElement(react_lottie_1.default, { options: successOptions, width: 50, height: 50 })));
+        return (react_1.default.createElement("div", { className: "success-wrapper" },
+            react_1.default.createElement("div", { className: "success-icon" },
+                react_1.default.createElement(react_lottie_1.default, { options: successOptions, width: 50, height: 50 })),
+            this.props.message && (react_1.default.createElement("div", { className: "success-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); })))));
     };
     return Success;
 }(react_1.Component));

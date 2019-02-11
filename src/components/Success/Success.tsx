@@ -1,16 +1,17 @@
 import React, { Component, ReactNode } from "react";
 import Lottie from "react-lottie";
 import successAnimation from "../../assets/success-animation.json";
+import { SuccessProps } from "./SuccessProps.js";
 
 /**
  * Class to display a success animation.
  */
-export class Success extends Component {
+export class Success extends Component<SuccessProps> {
     /**
      * Create a new instance of Success.
      * @param props The props.
      */
-    constructor(props: any) {
+    constructor(props: SuccessProps) {
         super(props);
     }
 
@@ -29,12 +30,21 @@ export class Success extends Component {
         };
 
         return (
-            <div style={{display: "inline-block"}}>
-                <Lottie
-                    options={successOptions}
-                    width={50}
-                    height={50}
-                />
+            <div className="success-wrapper">
+                <div className="success-icon">
+                    <Lottie
+                        options={successOptions}
+                        width={50}
+                        height={50}
+                    />
+                </div>
+                {this.props.message && (
+                    <div className="success-message">
+                        {this.props.message.split("\n").map((s, idx) => (
+                            <span key={idx}>{s}</span>
+                        ))}
+                    </div>
+                )}
             </div>
 
         );
