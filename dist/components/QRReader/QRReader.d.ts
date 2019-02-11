@@ -1,5 +1,4 @@
 import { Component, ReactNode } from "react";
-import "./QRReader.scss";
 import { QRReaderProps } from "./QRReaderProps";
 import { QRReaderState } from "./QRReaderState";
 /**

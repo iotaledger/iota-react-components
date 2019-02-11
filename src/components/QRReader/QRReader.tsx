@@ -1,11 +1,10 @@
+import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
 import QrReader from "react-qr-reader";
-import { Button } from "../Button/Button";
 import { Fieldset } from "../Fieldset/Fieldset";
 import { Form } from "../Form/Form";
 import { Heading } from "../Heading/Heading";
 import { Select } from "../Select/Select";
-import "./QRReader.scss";
 import { QRReaderProps } from "./QRReaderProps";
 import { QRReaderState } from "./QRReaderState";
 
@@ -68,35 +67,45 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
      */
     public render(): ReactNode {
         return (
-            <div className="qr-reader">
+            <div
+                className={
+                    classNames(
+                        "qr-reader",
+                        { "qr-reader__inline": this.props.displayMode === "inline" },
+                        { "qr-reader__fill": this.props.displayMode === "fill" }
+                    )
+                }
+            >
                 <div className="qr-reader-overlay" />
-                <Heading level={1} className="text--tertiary">QR Scanner</Heading>
-                <p>When the QR is detected the scanner will automatically close.</p>
-                <Form>
-                    <Fieldset>
-                        <label>Camera</label>
-                        <Select
-                            value={this.state.facingMode}
-                            onChange={(e) =>
-                                this.setState(
-                                    { facingMode: (e.target.value as "environment" | "user") },
-                                    async () =>
-                                        this.store<string>("qrCameraFacingMode", this.state.facingMode).catch((err) => { })
-                                )}
-                        >
-                            <option value="environment">Environment</option>
-                            <option value="user">User</option>
-                        </Select>
-                    </Fieldset>
-                </Form>
-                <QrReader
-                    facingMode={this.state.facingMode}
-                    className="qr-reader-scan"
-                    delay={300}
-                    onError={() => this.handleError()}
-                    onScan={(data) => this.handleScan(data)}
-                />
-                <Button color="primary" onClick={() => this.handleScan(undefined)}>Close</Button>
+                <div className="qr-reader-content">
+                    <Heading level={1}>QR Scanner</Heading>
+                    <button className="qr-reader-close icon-cross" onClick={() => this.handleScan(undefined)} />
+                    <Form>
+                        <Fieldset>
+                            <label>Camera</label>
+                            <Select
+                                value={this.state.facingMode}
+                                onChange={(e) =>
+                                    this.setState(
+                                        { facingMode: (e.target.value as "environment" | "user") },
+                                        async () =>
+                                            this.store<string>("qrCameraFacingMode", this.state.facingMode).catch((err) => { })
+                                    )}
+                            >
+                                <option value="environment">Environment</option>
+                                <option value="user">User</option>
+                            </Select>
+                        </Fieldset>
+                    </Form>
+                    <QrReader
+                        facingMode={this.state.facingMode}
+                        className="qr-reader-scan"
+                        delay={300}
+                        onError={() => this.handleError()}
+                        onScan={(data) => this.handleScan(data)}
+                    />
+                    <p>When a QR code is detected the scanner will automatically close.</p>
+                </div>
             </div>
         );
     }

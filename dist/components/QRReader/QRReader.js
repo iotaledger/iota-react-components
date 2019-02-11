@@ -47,6 +47,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -54,18 +57,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 var react_qr_reader_1 = __importDefault(require("react-qr-reader"));
-var Button_1 = require("../Button/Button");
 var Fieldset_1 = require("../Fieldset/Fieldset");
 var Form_1 = require("../Form/Form");
 var Heading_1 = require("../Heading/Heading");
 var Select_1 = require("../Select/Select");
-require("./QRReader.scss");
 /**
  * Component which will view display a QR reader.
  */
@@ -129,22 +128,23 @@ var QRReader = /** @class */ (function (_super) {
      */
     QRReader.prototype.render = function () {
         var _this = this;
-        return (react_1.default.createElement("div", { className: "qr-reader" },
+        return (react_1.default.createElement("div", { className: classnames_1.default("qr-reader", { "qr-reader__inline": this.props.displayMode === "inline" }, { "qr-reader__fill": this.props.displayMode === "fill" }) },
             react_1.default.createElement("div", { className: "qr-reader-overlay" }),
-            react_1.default.createElement(Heading_1.Heading, { level: 1, className: "text--tertiary" }, "QR Scanner"),
-            react_1.default.createElement("p", null, "When the QR is detected the scanner will automatically close."),
-            react_1.default.createElement(Form_1.Form, null,
-                react_1.default.createElement(Fieldset_1.Fieldset, null,
-                    react_1.default.createElement("label", null, "Camera"),
-                    react_1.default.createElement(Select_1.Select, { value: this.state.facingMode, onChange: function (e) {
-                            return _this.setState({ facingMode: e.target.value }, function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                                return [2 /*return*/, this.store("qrCameraFacingMode", this.state.facingMode).catch(function (err) { })];
-                            }); }); });
-                        } },
-                        react_1.default.createElement("option", { value: "environment" }, "Environment"),
-                        react_1.default.createElement("option", { value: "user" }, "User")))),
-            react_1.default.createElement(react_qr_reader_1.default, { facingMode: this.state.facingMode, className: "qr-reader-scan", delay: 300, onError: function () { return _this.handleError(); }, onScan: function (data) { return _this.handleScan(data); } }),
-            react_1.default.createElement(Button_1.Button, { color: "primary", onClick: function () { return _this.handleScan(undefined); } }, "Close")));
+            react_1.default.createElement("div", { className: "qr-reader-content" },
+                react_1.default.createElement(Heading_1.Heading, { level: 1 }, "QR Scanner"),
+                react_1.default.createElement("button", { className: "qr-reader-close icon-cross", onClick: function () { return _this.handleScan(undefined); } }),
+                react_1.default.createElement(Form_1.Form, null,
+                    react_1.default.createElement(Fieldset_1.Fieldset, null,
+                        react_1.default.createElement("label", null, "Camera"),
+                        react_1.default.createElement(Select_1.Select, { value: this.state.facingMode, onChange: function (e) {
+                                return _this.setState({ facingMode: e.target.value }, function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                                    return [2 /*return*/, this.store("qrCameraFacingMode", this.state.facingMode).catch(function (err) { })];
+                                }); }); });
+                            } },
+                            react_1.default.createElement("option", { value: "environment" }, "Environment"),
+                            react_1.default.createElement("option", { value: "user" }, "User")))),
+                react_1.default.createElement(react_qr_reader_1.default, { facingMode: this.state.facingMode, className: "qr-reader-scan", delay: 300, onError: function () { return _this.handleError(); }, onScan: function (data) { return _this.handleScan(data); } }),
+                react_1.default.createElement("p", null, "When a QR code is detected the scanner will automatically close."))));
     };
     /**
      * Store something in the local storage.
