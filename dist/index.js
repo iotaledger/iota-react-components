@@ -5,6 +5,8 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./components/Button/Button"));
 __export(require("./components/Button/ButtonContainer"));
+__export(require("./components/Checkbox/Checkbox"));
+__export(require("./components/Checkbox/CheckboxContainer"));
 __export(require("./components/Fieldset/Fieldset"));
 __export(require("./components/Footer/Footer"));
 __export(require("./components/Form/Form"));
