@@ -20,6 +20,7 @@ __export(require("./components/Pagination/Pagination"));
 __export(require("./components/Pagination/PaginationInfo"));
 __export(require("./components/RouterScrollTop/RouterScrollTop"));
 __export(require("./components/QRReader/QRReader"));
+__export(require("./components/SideMenu/SideMenu"));
 __export(require("./components/Table/Table"));
 __export(require("./components/Table/TableBody"));
 __export(require("./components/Table/TableBodyRow"));
