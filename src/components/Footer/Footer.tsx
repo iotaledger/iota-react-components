@@ -58,7 +58,7 @@ export class Footer extends React.Component<FooterProps> {
                             onChange={(e) => this.handleClick(e.target.value)}
                             className="footer-top-content__dropdown"
                         >
-                            <option value="">Select a topic</option>
+                            <option value="">Select a section</option>
                             {
                                 this.props.sections.map(({ heading, links }) =>
                                     <optgroup key={heading} label={heading}>

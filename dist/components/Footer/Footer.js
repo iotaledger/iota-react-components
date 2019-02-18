@@ -52,7 +52,7 @@ var Footer = /** @class */ (function (_super) {
                 react_1.default.createElement("div", { className: "footer-top-content__dropdown-wrapper" },
                     react_1.default.createElement(Heading_1.Heading, { level: 3, className: "footer-top-content__heading" }, "Jump to a section"),
                     react_1.default.createElement(Select_1.Select, { onChange: function (e) { return _this.handleClick(e.target.value); }, className: "footer-top-content__dropdown" },
-                        react_1.default.createElement("option", { value: "" }, "Select a topic"),
+                        react_1.default.createElement("option", { value: "" }, "Select a section"),
                         this.props.sections.map(function (_a) {
                             var heading = _a.heading, links = _a.links;
                             return react_1.default.createElement("optgroup", { key: heading, label: heading }, links.map(function (_a) {
