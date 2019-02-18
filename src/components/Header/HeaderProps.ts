@@ -27,4 +27,14 @@ export interface HeaderProps {
      * Display the header in compact style.
      */
     compact?: boolean;
+
+    /**
+     * Hamburger media query style.
+     */
+    hamburgerMediaQuery?: string;
+
+    /**
+     * Callback for the hamburger menu being clicked.
+     */
+    hamburgerClick?(): void;
 }

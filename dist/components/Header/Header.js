@@ -31,6 +31,7 @@ var Header = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Header.prototype.render = function () {
+        var _this = this;
         return (react_1.default.createElement("header", { className: classnames_1.default("header", { compact: this.props.compact }) },
             react_1.default.createElement("div", { className: "header__wrapper" },
                 react_1.default.createElement("section", { className: "header__head" },
@@ -41,7 +42,8 @@ var Header = /** @class */ (function (_super) {
                             react_1.default.createElement("ul", { className: "top-header__items" }, this.props.topLinks.map(function (title, index) {
                                 return (react_1.default.createElement("li", { key: index, className: "top-header__item" },
                                     react_1.default.createElement("a", { href: title.href, target: "_blank", rel: "noopener noreferrer" }, title.text)));
-                            }))))),
+                            }))),
+                        this.props.hamburgerClick && (react_1.default.createElement("button", { className: classnames_1.default("header__icon", this.props.hamburgerMediaQuery), onClick: function () { return _this.props.hamburgerClick && _this.props.hamburgerClick(); } })))),
                 react_1.default.createElement("section", { className: "header__body" },
                     react_1.default.createElement("span", { className: "header__title text text--level1 text--secondary" }, this.props.title)))));
     };

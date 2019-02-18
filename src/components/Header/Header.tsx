@@ -32,6 +32,17 @@ export class Header extends React.Component<HeaderProps> {
                                     )}
                                 </ul>
                             </div>
+                            {this.props.hamburgerClick && (
+                                <button
+                                    className={
+                                        classNames(
+                                            "header__icon",
+                                            this.props.hamburgerMediaQuery
+                                        )
+                                    }
+                                    onClick={() => this.props.hamburgerClick && this.props.hamburgerClick()}
+                                />
+                            )}
                         </div>
                     </section>
                     <section className="header__body">
