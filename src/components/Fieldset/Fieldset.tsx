@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
 import { FieldsetProps } from "./FieldsetProps";
 
@@ -20,7 +21,14 @@ export class Fieldset extends Component<FieldsetProps> {
      */
     public render(): ReactNode {
         return (
-            <div className="fieldset">
+            <div
+                className={
+                    classNames(
+                        "fieldset",
+                        { "fieldset--small": this.props.small }
+                    )
+                }
+            >
                 {this.props.children}
             </div>
         );

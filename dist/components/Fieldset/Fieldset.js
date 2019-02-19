@@ -12,6 +12,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -20,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 /**
  * Class Fieldset.
@@ -39,7 +43,7 @@ var Fieldset = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Fieldset.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "fieldset" }, this.props.children));
+        return (react_1.default.createElement("div", { className: classnames_1.default("fieldset", { "fieldset--small": this.props.small }) }, this.props.children));
     };
     return Fieldset;
 }(react_1.Component));

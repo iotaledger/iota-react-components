@@ -8,4 +8,9 @@ export interface FieldsetProps {
      * The children elements to display as content.
      */
     children?: ReactNode | ReactNode[];
+
+    /**
+     * Display a small fieldset.
+     */
+    small?: boolean;
 }
