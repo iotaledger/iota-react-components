@@ -17,28 +17,67 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var react_router_1 = require("react-router");
 /**
  * Component to add a google analytics link.
  */
-var GoogleAnalytics = /** @class */ (function (_super) {
-    __extends(GoogleAnalytics, _super);
-    function GoogleAnalytics() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var GoogleAnalyticsWithoutRouter = /** @class */ (function (_super) {
+    __extends(GoogleAnalyticsWithoutRouter, _super);
+    /**
+     * Create a new instance of GoogleAnalytics.
+     * @param props The props.
+     */
+    function GoogleAnalyticsWithoutRouter(props) {
+        return _super.call(this, props) || this;
     }
+    GoogleAnalyticsWithoutRouter.prototype.componentDidMount = function () {
+        var _this = this;
+        this.props.history.listen(function (location) { return _this.pageView(location); });
+    };
+    /**
+     * The component updated so load the script if the id is set.
+     * @param prevProps The previous properties.
+     */
+    GoogleAnalyticsWithoutRouter.prototype.componentDidUpdate = function (prevProps) {
+        var _this = this;
+        if (this.props.id !== prevProps.id && this.props.id) {
+            var scriptGtag = document.createElement("script");
+            scriptGtag.text = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\n";
+            document.body.appendChild(scriptGtag);
+            var script = document.createElement("script");
+            script.onload = function () {
+                _this.pageView(_this.props.location);
+            };
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=" + this.props.id;
+            document.body.appendChild(script);
+        }
+    };
     /**
      * Render the component.
      * @returns The node to render.
      */
-    GoogleAnalytics.prototype.render = function () {
-        if (!this.props.id) {
-            return null;
-        }
-        var src = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '" + this.props.id + "');\n";
-        // tslint:disable:react-no-dangerous-html
-        return (react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement("script", { async: true, src: "https://www.googletagmanager.com/gtag/js?id=" + this.props.id }),
-            react_1.default.createElement("script", { dangerouslySetInnerHTML: { __html: src } })));
+    GoogleAnalyticsWithoutRouter.prototype.render = function () {
+        return null;
     };
-    return GoogleAnalytics;
-}(react_1.default.PureComponent));
-exports.GoogleAnalytics = GoogleAnalytics;
+    /**
+     * Log a page view to the analytics.
+     * @param location The location to log.
+     */
+    GoogleAnalyticsWithoutRouter.prototype.pageView = function (location) {
+        if (this.props.id) {
+            var newLocation = location.pathname + location.search + location.hash;
+            if (newLocation !== this._lastSent) {
+                var gtag = window.gtag;
+                if (typeof gtag === "function") {
+                    gtag("config", this.props.id, { page_path: newLocation });
+                }
+                this._lastSent = newLocation;
+            }
+        }
+    };
+    return GoogleAnalyticsWithoutRouter;
+}(react_1.default.Component));
+exports.GoogleAnalyticsWithoutRouter = GoogleAnalyticsWithoutRouter;
+// tslint:disable-next-line:variable-name
+exports.GoogleAnalytics = react_router_1.withRouter(GoogleAnalyticsWithoutRouter);
