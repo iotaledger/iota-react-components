@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 var Spinner_1 = require("../Spinner/Spinner");
+var Success_1 = require("../Success/Success");
 /**
  * Class FormStatus.
  */
@@ -48,6 +49,7 @@ var FormStatus = /** @class */ (function (_super) {
             !this.props.fullWidth && (react_1.default.createElement("label", null)),
             react_1.default.createElement("div", { className: classnames_1.default("form--status-content", { "form--status-content__error": this.props.isError }) },
                 this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
+                this.props.isSuccess && (react_1.default.createElement(Success_1.Success, null)),
                 react_1.default.createElement("div", { className: "form--status-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); }))))) : null;
     };
     return FormStatus;

@@ -11,6 +11,10 @@ export interface FormStatusProps {
      */
     isBusy?: boolean;
     /**
+     * Show a success spinner.
+     */
+    isSuccess?: boolean;
+    /**
      * Show in error state if failure.
      */
     isError?: boolean;

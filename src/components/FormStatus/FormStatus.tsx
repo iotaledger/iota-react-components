@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
 import { Spinner } from "../Spinner/Spinner";
+import { Success } from "../Success/Success";
 import { FormStatusProps } from "./FormStatusProps";
 
 /**
@@ -29,6 +30,10 @@ export class FormStatus extends Component<FormStatusProps> {
                 <div className={classNames("form--status-content", { "form--status-content__error": this.props.isError })}>
                     {this.props.isBusy && (
                         <Spinner />
+                    )}
+
+                    {this.props.isSuccess && (
+                        <Success />
                     )}
 
                     <div className="form--status-message">
