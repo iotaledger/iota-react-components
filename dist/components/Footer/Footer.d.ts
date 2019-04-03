@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { FooterProps } from "./FooterProps.js";
+import { FooterProps } from "./FooterProps";
 /**
  * Component to display styled footer.
  */

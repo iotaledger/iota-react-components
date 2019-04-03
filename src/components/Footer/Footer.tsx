@@ -4,7 +4,7 @@ import { Heading } from "../Heading/Heading";
 import { Link } from "../Link/Link";
 import { Select } from "../Select/Select";
 import { Text } from "../Text/Text";
-import { FooterProps } from "./FooterProps.js";
+import { FooterProps } from "./FooterProps";
 
 /**
  * Component to display styled footer.

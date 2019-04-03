@@ -1,5 +1,5 @@
 import { Component, ReactNode } from "react";
-import { SuccessProps } from "./SuccessProps.js";
+import { SuccessProps } from "./SuccessProps";
 /**
  * Class to display a success animation.
  */

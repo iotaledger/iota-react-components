@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from "react";
 import Lottie from "react-lottie";
 import successAnimation from "../../assets/success-animation.json";
-import { SuccessProps } from "./SuccessProps.js";
+import { SuccessProps } from "./SuccessProps";
 
 /**
  * Class to display a success animation.
