@@ -8,6 +8,8 @@ export * from "./components/Checkbox/Checkbox";
 export * from "./components/Checkbox/CheckboxProps";
 export * from "./components/Checkbox/CheckboxContainer";
 export * from "./components/Checkbox/CheckboxContainerProps";
+export * from "./components/Modal/Modal";
+export * from "./components/Modal/ModalProps";
 export * from "./components/Fieldset/Fieldset";
 export * from "./components/Fieldset/FieldsetProps";
 export * from "./components/Footer/Footer";
