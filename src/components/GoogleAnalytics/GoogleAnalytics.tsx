@@ -1,6 +1,6 @@
 import * as H from "history";
 import React, { ReactNode } from "react";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { GoogleAnalyticsProps } from "./GoogleAnalyticsProps";
 
 /**

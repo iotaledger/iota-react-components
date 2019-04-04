@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var react_router_1 = require("react-router");
+var react_router_dom_1 = require("react-router-dom");
 /**
  * Component to add a google analytics link.
  */
@@ -80,4 +80,4 @@ var GoogleAnalyticsWithoutRouter = /** @class */ (function (_super) {
 }(react_1.default.Component));
 exports.GoogleAnalyticsWithoutRouter = GoogleAnalyticsWithoutRouter;
 // tslint:disable-next-line:variable-name
-exports.GoogleAnalytics = react_router_1.withRouter(GoogleAnalyticsWithoutRouter);
+exports.GoogleAnalytics = react_router_dom_1.withRouter(GoogleAnalyticsWithoutRouter);

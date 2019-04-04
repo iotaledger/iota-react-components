@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import { ScrollHelper } from "../../utils/scrollHelper";
 
 /**

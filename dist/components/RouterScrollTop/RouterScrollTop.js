@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var react_router_1 = require("react-router");
+var react_router_dom_1 = require("react-router-dom");
 var scrollHelper_1 = require("../../utils/scrollHelper");
 /**
  * Component to scroll to the top of the page on router navigate.
@@ -46,4 +46,4 @@ var RouterScrollTopWithoutRouter = /** @class */ (function (_super) {
     return RouterScrollTopWithoutRouter;
 }(react_1.default.Component));
 // tslint:disable-next-line:variable-name
-exports.RouterScrollTop = react_router_1.withRouter(RouterScrollTopWithoutRouter);
+exports.RouterScrollTop = react_router_dom_1.withRouter(RouterScrollTopWithoutRouter);
