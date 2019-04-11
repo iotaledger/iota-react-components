@@ -4,4 +4,5 @@
 export type ButtonSize =
     "normal" |
     "small" |
+    "extra-small" |
     "large";
