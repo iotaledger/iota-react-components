@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
 import { SelectProps } from "./SelectProps";
 
@@ -19,9 +20,16 @@ export class Select extends Component<SelectProps> {
      * @returns The node to render.
      */
     public render(): ReactNode {
+        const { selectSize, ...actualProps } = this.props;
         return (
-            <div className="select-wrapper">
-                <select {...this.props} />
+            <div
+                className={
+                    classNames(
+                        "select-wrapper",
+                        { small: selectSize === "small" })
+                }
+            >
+                <select {...actualProps} />
             </div>
         );
     }

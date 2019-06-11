@@ -23,6 +23,18 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -31,6 +43,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 /**
  * Class Select.
@@ -50,8 +63,9 @@ var Select = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Select.prototype.render = function () {
-        return (react_1.default.createElement("div", { className: "select-wrapper" },
-            react_1.default.createElement("select", __assign({}, this.props))));
+        var _a = this.props, selectSize = _a.selectSize, actualProps = __rest(_a, ["selectSize"]);
+        return (react_1.default.createElement("div", { className: classnames_1.default("select-wrapper", { small: selectSize === "small" }) },
+            react_1.default.createElement("select", __assign({}, actualProps))));
     };
     return Select;
 }(react_1.Component));
