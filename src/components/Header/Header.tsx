@@ -47,6 +47,7 @@ export class Header extends React.Component<HeaderProps> {
                     </section>
                     <section className="header__body">
                         <span className="header__title text text--level1 text--secondary">{this.props.title}</span>
+                        {this.props.children}
                     </section>
                 </div>
             </header>

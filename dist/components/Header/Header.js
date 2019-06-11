@@ -45,7 +45,8 @@ var Header = /** @class */ (function (_super) {
                             }))),
                         this.props.hamburgerClick && (react_1.default.createElement("button", { className: classnames_1.default("header__icon", this.props.hamburgerMediaQuery), onClick: function () { return _this.props.hamburgerClick && _this.props.hamburgerClick(); } })))),
                 react_1.default.createElement("section", { className: "header__body" },
-                    react_1.default.createElement("span", { className: "header__title text text--level1 text--secondary" }, this.props.title)))));
+                    react_1.default.createElement("span", { className: "header__title text text--level1 text--secondary" }, this.props.title),
+                    this.props.children))));
     };
     return Header;
 }(react_1.default.Component));
