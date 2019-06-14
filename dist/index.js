@@ -34,6 +34,7 @@ __export(require("./components/Table/TableBodyRowHeader"));
 __export(require("./components/Table/TableHead"));
 __export(require("./components/Table/TableHeadRow"));
 __export(require("./components/Table/TableHeadRowHeader"));
+__export(require("./components/TextArea/TextArea"));
 __export(require("./components/Select/Select"));
 __export(require("./components/Spinner/Spinner"));
 __export(require("./components/StatusMessage/StatusMessage"));
