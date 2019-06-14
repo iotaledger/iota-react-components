@@ -1,15 +1,16 @@
 import { Component, ReactNode } from "react";
 import { InputProps } from "./InputProps";
+import { InputState } from "./InputState";
 /**
  * Class Input.
  */
-export declare class Input extends Component<InputProps> {
+export declare class Input extends Component<InputProps, InputState> {
     /**
      * Create a new instance of Input.
      * @param props The properties.
      * @param context The context.
      */
-    constructor(props: InputProps, context: {});
+    constructor(props: InputProps);
     /**
      * Render the component.
      * @returns The node to render.

@@ -55,8 +55,12 @@ var Input = /** @class */ (function (_super) {
      * @param props The properties.
      * @param context The context.
      */
-    function Input(props, context) {
-        return _super.call(this, props, context) || this;
+    function Input(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            hasContent: false
+        };
+        return _this;
     }
     /**
      * Render the component.
@@ -65,7 +69,12 @@ var Input = /** @class */ (function (_super) {
     Input.prototype.render = function () {
         var _this = this;
         var _a = this.props, inputSize = _a.inputSize, restrict = _a.restrict, actualProps = __rest(_a, ["inputSize", "restrict"]);
-        return (react_1.default.createElement("input", __assign({}, actualProps, { className: classnames_1.default({ small: inputSize === "small" }), onKeyDown: function (e) { return _this.handleKeyDown(e, restrict); } })));
+        return (react_1.default.createElement("input", __assign({}, actualProps, { className: classnames_1.default({ small: inputSize === "small" }), onChange: function (e) {
+                _this.setState({ hasContent: e.target.value.length > 0 });
+                if (_this.props.onChange) {
+                    _this.props.onChange(e);
+                }
+            }, style: this.state.hasContent && restrict === "trytes" ? { textTransform: "uppercase" } : undefined, onKeyDown: function (e) { return _this.handleKeyDown(e, restrict); } })));
     };
     /**
      * Handle the key down event.
@@ -94,6 +103,13 @@ var Input = /** @class */ (function (_super) {
                     }
                 }
                 else if (!isDigit) {
+                    evt.preventDefault();
+                }
+            }
+            else if (restrict === "trytes") {
+                var keyValue = String.fromCharCode(keyCode);
+                var isTrytes = /[A-Z9]/.test(keyValue);
+                if (!isTrytes) {
                     evt.preventDefault();
                 }
             }

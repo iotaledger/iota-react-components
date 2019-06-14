@@ -4,4 +4,5 @@
 export type InputRestrict =
     "none" |
     "integer" |
-    "float";
+    "float" |
+    "trytes";

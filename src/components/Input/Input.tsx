@@ -2,18 +2,23 @@ import classNames from "classnames";
 import React, { Component, KeyboardEvent, ReactNode } from "react";
 import { InputProps } from "./InputProps";
 import { InputRestrict } from "./InputRestrict";
+import { InputState } from "./InputState";
 
 /**
  * Class Input.
  */
-export class Input extends Component<InputProps> {
+export class Input extends Component<InputProps, InputState> {
     /**
      * Create a new instance of Input.
      * @param props The properties.
      * @param context The context.
      */
-    constructor(props: InputProps, context: {}) {
-        super(props, context);
+    constructor(props: InputProps) {
+        super(props);
+
+        this.state = {
+            hasContent: false
+        };
     }
 
     /**
@@ -29,6 +34,13 @@ export class Input extends Component<InputProps> {
                     classNames(
                         { small: inputSize === "small" })
                 }
+                onChange={(e) => {
+                    this.setState({ hasContent: e.target.value.length > 0 });
+                    if (this.props.onChange) {
+                        this.props.onChange(e);
+                    }
+                }}
+                style={this.state.hasContent && restrict === "trytes" ? { textTransform: "uppercase" } : undefined}
                 onKeyDown={(e) => this.handleKeyDown(e, restrict)}
             />
         );
@@ -61,6 +73,13 @@ export class Input extends Component<InputProps> {
                         evt.preventDefault();
                     }
                 } else if (!isDigit) {
+                    evt.preventDefault();
+                }
+            } else if (restrict === "trytes") {
+                const keyValue = String.fromCharCode(keyCode);
+                const isTrytes = /[A-Z9]/.test(keyValue);
+
+                if (!isTrytes) {
                     evt.preventDefault();
                 }
             }
