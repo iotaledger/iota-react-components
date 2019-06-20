@@ -71,6 +71,8 @@ export * from "./components/Select/Select";
 export * from "./components/Select/SelectProps";
 export * from "./components/Select/SelectSize";
 export * from "./components/Spinner/Spinner";
+export * from "./components/Spinner/SpinnerProps";
+export * from "./components/Spinner/SpinnerSize";
 export * from "./components/StatusMessage/StatusMessage";
 export * from "./components/StatusMessage/StatusMessageColor";
 export * from "./components/StatusMessage/StatusMessageProps";

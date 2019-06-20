@@ -31,7 +31,8 @@ export class StatusMessage extends Component<StatusMessageProps> {
                 )}
                 <div className="status">
                     {this.props.status.split("\n").map((s, idx) => (
-                        <span key={idx} dangerouslySetInnerHTML={ { __html: s || "&nbsp;"} }/>
+                        // tslint:disable-next-line:react-no-dangerous-html
+                        <span key={idx} dangerouslySetInnerHTML={{ __html: s || "&nbsp;" }} />
                     ))}
                 </div>
             </div>

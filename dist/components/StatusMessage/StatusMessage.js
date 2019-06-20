@@ -47,7 +47,9 @@ var StatusMessage = /** @class */ (function (_super) {
         return this.props.status ? (react_1.default.createElement("div", { className: classnames_1.default("status-message", this.props.color) },
             this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
             this.props.isSuccess && (react_1.default.createElement(Success_1.Success, null)),
-            react_1.default.createElement("div", { className: "status" }, this.props.status.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx, dangerouslySetInnerHTML: { __html: s || "&nbsp;" } })); })))) : null;
+            react_1.default.createElement("div", { className: "status" }, this.props.status.split("\n").map(function (s, idx) { return (
+            // tslint:disable-next-line:react-no-dangerous-html
+            react_1.default.createElement("span", { key: idx, dangerouslySetInnerHTML: { __html: s || "&nbsp;" } })); })))) : null;
     };
     return StatusMessage;
 }(react_1.Component));

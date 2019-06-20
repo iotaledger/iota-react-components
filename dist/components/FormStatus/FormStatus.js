@@ -50,7 +50,9 @@ var FormStatus = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: classnames_1.default("form--status-content", { "form--status-content__error": this.props.isError }) },
                 this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
                 this.props.isSuccess && (react_1.default.createElement(Success_1.Success, null)),
-                react_1.default.createElement("div", { className: "form--status-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx, dangerouslySetInnerHTML: { __html: s || "&nbsp;" } })); }))))) : null;
+                react_1.default.createElement("div", { className: "form--status-message" }, this.props.message.split("\n").map(function (s, idx) { return (
+                // tslint:disable-next-line:react-no-dangerous-html
+                react_1.default.createElement("span", { key: idx, dangerouslySetInnerHTML: { __html: s || "&nbsp;" } })); }))))) : null;
     };
     return FormStatus;
 }(react_1.Component));

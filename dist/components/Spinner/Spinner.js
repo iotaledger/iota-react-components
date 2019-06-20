@@ -51,7 +51,7 @@ var Spinner = /** @class */ (function (_super) {
             rendererSettings: renderSettings
         };
         return (react_1.default.createElement("div", { className: "spinner", style: { display: "inline-block" } },
-            react_1.default.createElement(react_lottie_1.default, { options: spinOptions, width: 50, height: 50 })));
+            react_1.default.createElement(react_lottie_1.default, { options: spinOptions, width: this.props.size === "small" ? 25 : 50, height: this.props.size === "small" ? 25 : 50 })));
     };
     return Spinner;
 }(react_1.Component));
