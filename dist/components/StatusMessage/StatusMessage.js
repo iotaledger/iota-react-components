@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 var Spinner_1 = require("../Spinner/Spinner");
+var Success_1 = require("../Success/Success");
 /**
  * Class to display a styled status message.
  */
@@ -45,7 +46,8 @@ var StatusMessage = /** @class */ (function (_super) {
     StatusMessage.prototype.render = function () {
         return this.props.status ? (react_1.default.createElement("div", { className: classnames_1.default("status-message", this.props.color) },
             this.props.isBusy && (react_1.default.createElement(Spinner_1.Spinner, null)),
-            react_1.default.createElement("div", { className: "status" }, this.props.status.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); })))) : null;
+            this.props.isSuccess && (react_1.default.createElement(Success_1.Success, null)),
+            react_1.default.createElement("div", { className: "status" }, this.props.status.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx, dangerouslySetInnerHTML: { __html: s || "&nbsp;" } })); })))) : null;
     };
     return StatusMessage;
 }(react_1.Component));

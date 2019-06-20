@@ -12,4 +12,8 @@ export interface StatusMessageProps {
      * Show a busy spinner.
      */
     isBusy?: boolean;
+    /**
+     * Show a success spinner.
+     */
+    isSuccess?: boolean;
 }

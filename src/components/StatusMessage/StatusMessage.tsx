@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { Component, ReactNode } from "react";
 import { Spinner } from "../Spinner/Spinner";
+import { Success } from "../Success/Success";
 import { StatusMessageProps } from "./StatusMessageProps";
 
 /**
@@ -25,9 +26,12 @@ export class StatusMessage extends Component<StatusMessageProps> {
                 {this.props.isBusy && (
                     <Spinner />
                 )}
+                {this.props.isSuccess && (
+                    <Success />
+                )}
                 <div className="status">
                     {this.props.status.split("\n").map((s, idx) => (
-                        <span key={idx}>{s}</span>
+                        <span key={idx} dangerouslySetInnerHTML={ { __html: s || "&nbsp;"} }/>
                     ))}
                 </div>
             </div>
