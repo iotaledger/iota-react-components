@@ -19,6 +19,9 @@ export class GoogleAnalyticsWithoutRouter extends React.Component<GoogleAnalytic
         super(props);
     }
 
+    /**
+     * The component mounted.
+     */
     public componentDidMount(): void {
         this.props.history.listen(location => this.pageView(location));
     }

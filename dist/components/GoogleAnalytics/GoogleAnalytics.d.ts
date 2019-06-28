@@ -13,6 +13,9 @@ export declare class GoogleAnalyticsWithoutRouter extends React.Component<Google
      * @param props The props.
      */
     constructor(props: GoogleAnalyticsProps);
+    /**
+     * The component mounted.
+     */
     componentDidMount(): void;
     /**
      * The component updated so load the script if the id is set.

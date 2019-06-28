@@ -30,6 +30,9 @@ var GoogleAnalyticsWithoutRouter = /** @class */ (function (_super) {
     function GoogleAnalyticsWithoutRouter(props) {
         return _super.call(this, props) || this;
     }
+    /**
+     * The component mounted.
+     */
     GoogleAnalyticsWithoutRouter.prototype.componentDidMount = function () {
         var _this = this;
         this.props.history.listen(function (location) { return _this.pageView(location); });
