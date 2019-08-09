@@ -64,7 +64,10 @@ export class TableBodyRowData extends React.PureComponent<TableBodyRowDataProps,
             >
                 {this.state.inlineHeader && (
                     <React.Fragment>
-                        <span className="table-body-row-item--inline-header" dangerouslySetInnerHTML={{ __html: this.state.inlineHeader }} />
+                        <span
+                            className="table-body-row-item--inline-header"
+                            dangerouslySetInnerHTML={{ __html: this.state.inlineHeader }}
+                        />
                         <span>{this.props.children}</span>
                     </React.Fragment>
                 )}

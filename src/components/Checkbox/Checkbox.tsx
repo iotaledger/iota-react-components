@@ -20,6 +20,7 @@ export class Checkbox extends Component<CheckboxProps> {
      * @returns The node to render.
      */
     public render(): ReactNode {
+        /* tslint:disable:react-a11y-input-elements */
         return (
             <div
                 className={
@@ -30,7 +31,12 @@ export class Checkbox extends Component<CheckboxProps> {
                 }
             >
                 <div className="checkbox-border">
-                    <input type="checkbox" checked={this.props.checked} disabled={this.props.disabled} onChange={(e) => this.props.onChange && this.props.onChange(e.target.checked)} />
+                    <input
+                        type="checkbox"
+                        checked={this.props.checked}
+                        disabled={this.props.disabled}
+                        onChange={e => this.props.onChange && this.props.onChange(e.target.checked)}
+                    />
                 </div>
                 <label>{this.props.label}</label>
             </div>

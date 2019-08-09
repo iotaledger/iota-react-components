@@ -27,7 +27,11 @@ export class FormStatus extends Component<FormStatusProps> {
                 {!this.props.fullWidth && (
                     <label />
                 )}
-                <div className={classNames("form--status-content", { "form--status-content__error": this.props.isError })}>
+                <div
+                    className={
+                        classNames("form--status-content", { "form--status-content__error": this.props.isError })
+                    }
+                >
                     {this.props.isBusy && (
                         <Spinner />
                     )}

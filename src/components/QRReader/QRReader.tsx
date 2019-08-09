@@ -85,11 +85,13 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
                             <label>Camera</label>
                             <Select
                                 value={this.state.facingMode}
-                                onChange={(e) =>
+                                onChange={e =>
                                     this.setState(
                                         { facingMode: (e.target.value as "environment" | "user") },
                                         async () =>
-                                            this.store<string>("qrCameraFacingMode", this.state.facingMode).catch((err) => { })
+                                            this.store<string>(
+                                                "qrCameraFacingMode",
+                                                this.state.facingMode).catch(err => { })
                                     )}
                             >
                                 <option value="environment">Environment</option>
@@ -102,7 +104,7 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
                         className="qr-reader-scan"
                         delay={300}
                         onError={() => this.handleError()}
-                        onScan={(data) => this.handleScan(data)}
+                        onScan={data => this.handleScan(data)}
                     />
                     <p>When a QR code is detected the scanner will automatically close.</p>
                 </div>

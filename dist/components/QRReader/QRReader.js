@@ -137,9 +137,11 @@ var QRReader = /** @class */ (function (_super) {
                     react_1.default.createElement(Fieldset_1.Fieldset, null,
                         react_1.default.createElement("label", null, "Camera"),
                         react_1.default.createElement(Select_1.Select, { value: this.state.facingMode, onChange: function (e) {
-                                return _this.setState({ facingMode: e.target.value }, function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                                    return [2 /*return*/, this.store("qrCameraFacingMode", this.state.facingMode).catch(function (err) { })];
-                                }); }); });
+                                return _this.setState({ facingMode: e.target.value }, function () { return __awaiter(_this, void 0, void 0, function () {
+                                    return __generator(this, function (_a) {
+                                        return [2 /*return*/, this.store("qrCameraFacingMode", this.state.facingMode).catch(function (err) { })];
+                                    });
+                                }); });
                             } },
                             react_1.default.createElement("option", { value: "environment" }, "Environment"),
                             react_1.default.createElement("option", { value: "user" }, "User")))),

@@ -20,7 +20,7 @@ export class Form extends Component<FormProps> {
      */
     public render(): ReactNode {
         return (
-            <form className="form" onSubmit={(e) => e.preventDefault()}>
+            <form className="form" onSubmit={e => e.preventDefault()}>
                 {this.props.children}
             </form>
         );

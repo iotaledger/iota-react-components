@@ -55,7 +55,7 @@ export class Footer extends React.Component<FooterProps> {
                     <div className="footer-top-content__dropdown-wrapper">
                         <Heading level={3} className="footer-top-content__heading">Jump to a section</Heading>
                         <Select
-                            onChange={(e) => this.handleClick(e.target.value)}
+                            onChange={e => this.handleClick(e.target.value)}
                             className="footer-top-content__dropdown"
                         >
                             <option value="">Select a section</option>

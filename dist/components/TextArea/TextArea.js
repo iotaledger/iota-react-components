@@ -66,8 +66,8 @@ var TextArea = /** @class */ (function (_super) {
      */
     TextArea.prototype.render = function () {
         var _this = this;
-        var _a = this.props, restrict = _a.restrict, actualProps = __rest(_a, ["restrict"]);
-        return (react_1.default.createElement("textarea", __assign({}, actualProps, { onChange: function (e) {
+        var _a = this.props, restrict = _a.restrict, placeholder = _a.placeholder, actualProps = __rest(_a, ["restrict", "placeholder"]);
+        return (react_1.default.createElement("textarea", __assign({}, actualProps, { placeholder: placeholder, onChange: function (e) {
                 _this.setState({ hasContent: e.target.value.length > 0 });
                 if (_this.props.onChange) {
                     _this.props.onChange(e);

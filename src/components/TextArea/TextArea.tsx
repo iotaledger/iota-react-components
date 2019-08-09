@@ -25,19 +25,20 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
      * @returns The node to render.
      */
     public render(): ReactNode {
-        const { restrict, ...actualProps } = this.props;
+        const { restrict, placeholder, ...actualProps } = this.props;
 
         return (
             <textarea
                 {...actualProps}
-                onChange={(e) => {
+                placeholder={placeholder}
+                onChange={e => {
                     this.setState({ hasContent: e.target.value.length > 0 });
                     if (this.props.onChange) {
                         this.props.onChange(e);
                     }
                 }}
                 style={this.state.hasContent && restrict === "trytes" ? { textTransform: "uppercase" } : undefined}
-                onKeyDown={(e) => this.handleKeyDown(e, restrict)}
+                onKeyDown={e => this.handleKeyDown(e, restrict)}
             />
         );
     }

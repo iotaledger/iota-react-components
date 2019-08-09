@@ -18,7 +18,10 @@ export class ScrollHelper {
      * @param scrollDuration The duration to use for the scrolling.
      * @param scrollComplete Callback called when scroll completes.
      */
-    public static scrollIntoViewBySelector(selector: string, scrollDuration: number = 1000, scrollComplete?: () => void): void {
+    public static scrollIntoViewBySelector(
+        selector: string,
+        scrollDuration: number = 1000,
+        scrollComplete?: () => void): void {
         const elem = document.querySelector(selector);
         if (elem) {
             ScrollHelper.scrollIntoView(<HTMLElement>elem, scrollDuration, scrollComplete);
@@ -32,27 +35,29 @@ export class ScrollHelper {
      * @param scrollComplete Callback called when scroll completes.
      */
     public static scrollIntoView(elem: HTMLElement, scrollDuration: number = 1000, scrollComplete?: () => void): void {
-        const scrollElement = document.scrollingElement || document.body || document.documentElement;
+        if (elem) {
+            const scrollElement = document.scrollingElement || document.body || document.documentElement;
 
-        const animate = (start: number, from: number, to: number, duration: number) => {
-            const time = Math.min(1, ((Date.now() - start) / duration));
-            const eased = 0.5 * (1 - Math.cos(Math.PI * time));
+            const animate = (start: number, from: number, to: number, duration: number) => {
+                const time = Math.min(1, ((Date.now() - start) / duration));
+                const eased = 0.5 * (1 - Math.cos(Math.PI * time));
 
-            scrollElement.scrollTop = (eased * (to - from)) + from;
+                scrollElement.scrollTop = (eased * (to - from)) + from;
 
-            if (time < 1) {
-                setTimeout(() => animate(start, from, to, duration), 0);
-            } else {
-                if (scrollComplete) {
-                    scrollComplete();
+                if (time < 1) {
+                    setTimeout(() => animate(start, from, to, duration), 0);
+                } else {
+                    if (scrollComplete) {
+                        scrollComplete();
+                    }
                 }
-            }
-        };
+            };
 
-        if (scrollElement) {
-            animate(Date.now(), scrollElement.scrollTop, elem.offsetTop, scrollDuration);
-        } else {
-            elem.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (scrollElement) {
+                animate(Date.now(), scrollElement.scrollTop, elem.offsetTop, scrollDuration);
+            } else {
+                elem.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         }
     }
 }

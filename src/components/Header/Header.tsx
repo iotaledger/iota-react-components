@@ -27,7 +27,13 @@ export class Header extends React.Component<HeaderProps> {
                                 <ul className="top-header__items">
                                     {this.props.topLinks.map((title, index) =>
                                         (<li key={index} className="top-header__item">
-                                            <a href={title.href} target="_blank" rel="noopener noreferrer">{title.text}</a>
+                                            <a
+                                                href={title.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {title.text}
+                                            </a>
                                         </li>)
                                     )}
                                 </ul>

@@ -26,22 +26,23 @@ export class Input extends Component<InputProps, InputState> {
      * @returns The node to render.
      */
     public render(): ReactNode {
-        const { inputSize, restrict, ...actualProps } = this.props;
+        const { inputSize, restrict, placeholder, ...actualProps } = this.props;
         return (
             <input
                 {...actualProps}
+                placeholder={placeholder}
                 className={
                     classNames(
                         { small: inputSize === "small" })
                 }
-                onChange={(e) => {
+                onChange={e => {
                     this.setState({ hasContent: e.target.value.length > 0 });
                     if (this.props.onChange) {
                         this.props.onChange(e);
                     }
                 }}
                 style={this.state.hasContent && restrict === "trytes" ? { textTransform: "uppercase" } : undefined}
-                onKeyDown={(e) => this.handleKeyDown(e, restrict)}
+                onKeyDown={e => this.handleKeyDown(e, restrict)}
             />
         );
     }

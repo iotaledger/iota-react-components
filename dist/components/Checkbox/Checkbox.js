@@ -44,6 +44,7 @@ var Checkbox = /** @class */ (function (_super) {
      */
     Checkbox.prototype.render = function () {
         var _this = this;
+        /* tslint:disable:react-a11y-input-elements */
         return (react_1.default.createElement("div", { className: classnames_1.default("checkbox", { checkbox__disabled: this.props.disabled }) },
             react_1.default.createElement("div", { className: "checkbox-border" },
                 react_1.default.createElement("input", { type: "checkbox", checked: this.props.checked, disabled: this.props.disabled, onChange: function (e) { return _this.props.onChange && _this.props.onChange(e.target.checked); } })),

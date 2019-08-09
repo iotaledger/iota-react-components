@@ -32,8 +32,8 @@ var Text = /** @class */ (function (_super) {
      */
     Text.prototype.render = function () {
         if (this.props.isHtml) {
-            // tslint:disable-next-line:react-no-dangerous-html
-            return react_1.default.createElement("span", { className: classnames_1.default("text", this.props.className), dangerouslySetInnerHTML: { __html: this.props.children } });
+            // tslint:disable:react-no-dangerous-html
+            return (react_1.default.createElement("span", { className: classnames_1.default("text", this.props.className), dangerouslySetInnerHTML: { __html: this.props.children } }));
         }
         return (react_1.default.createElement("span", { className: classnames_1.default("text", this.props.className) }, this.props.children));
     };

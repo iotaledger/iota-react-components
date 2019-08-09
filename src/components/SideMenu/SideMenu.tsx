@@ -24,7 +24,7 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
             items: this.createStateItems()
         };
 
-        this._handleKeyDown = (event) => this.handleKeyDown(event);
+        this._handleKeyDown = event => this.handleKeyDown(event);
     }
 
     /**
@@ -113,7 +113,11 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
                                                     >
                                                         <a
                                                             onClick={() => this.handleClick(subItem.link)}
-                                                            className={classNames({ "side-menu-item--active": subItem.isSelected })}
+                                                            className={
+                                                                classNames(
+                                                                    { "side-menu-item--active": subItem.isSelected }
+                                                                )
+                                                            }
                                                             role="link"
                                                         >
                                                             {subItem.name}
@@ -191,7 +195,7 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
         for (let i = 0; i < this.props.items.length; i++) {
             const propHeader = this.props.items[i];
 
-            const stateHeader: SideMenuStateItem  = {
+            const stateHeader: SideMenuStateItem = {
                 name: propHeader.name,
                 link: propHeader.link,
                 isExpanded: propHeader.isExpanded,
@@ -213,7 +217,7 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
                         for (let k = 0; k < propSection.items.length; k++) {
                             const propItem = propSection.items[k];
 
-                            const stateItem: SideMenuStateItem  = {
+                            const stateItem: SideMenuStateItem = {
                                 name: propItem.name,
                                 link: propItem.link,
                                 isExpanded: propItem.isExpanded,

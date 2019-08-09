@@ -70,8 +70,8 @@ var Input = /** @class */ (function (_super) {
      */
     Input.prototype.render = function () {
         var _this = this;
-        var _a = this.props, inputSize = _a.inputSize, restrict = _a.restrict, actualProps = __rest(_a, ["inputSize", "restrict"]);
-        return (react_1.default.createElement("input", __assign({}, actualProps, { className: classnames_1.default({ small: inputSize === "small" }), onChange: function (e) {
+        var _a = this.props, inputSize = _a.inputSize, restrict = _a.restrict, placeholder = _a.placeholder, actualProps = __rest(_a, ["inputSize", "restrict", "placeholder"]);
+        return (react_1.default.createElement("input", __assign({}, actualProps, { placeholder: placeholder, className: classnames_1.default({ small: inputSize === "small" }), onChange: function (e) {
                 _this.setState({ hasContent: e.target.value.length > 0 });
                 if (_this.props.onChange) {
                     _this.props.onChange(e);

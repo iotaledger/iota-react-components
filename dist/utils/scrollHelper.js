@@ -36,25 +36,27 @@ var ScrollHelper = /** @class */ (function () {
      */
     ScrollHelper.scrollIntoView = function (elem, scrollDuration, scrollComplete) {
         if (scrollDuration === void 0) { scrollDuration = 1000; }
-        var scrollElement = document.scrollingElement || document.body || document.documentElement;
-        var animate = function (start, from, to, duration) {
-            var time = Math.min(1, ((Date.now() - start) / duration));
-            var eased = 0.5 * (1 - Math.cos(Math.PI * time));
-            scrollElement.scrollTop = (eased * (to - from)) + from;
-            if (time < 1) {
-                setTimeout(function () { return animate(start, from, to, duration); }, 0);
+        if (elem) {
+            var scrollElement_1 = document.scrollingElement || document.body || document.documentElement;
+            var animate_1 = function (start, from, to, duration) {
+                var time = Math.min(1, ((Date.now() - start) / duration));
+                var eased = 0.5 * (1 - Math.cos(Math.PI * time));
+                scrollElement_1.scrollTop = (eased * (to - from)) + from;
+                if (time < 1) {
+                    setTimeout(function () { return animate_1(start, from, to, duration); }, 0);
+                }
+                else {
+                    if (scrollComplete) {
+                        scrollComplete();
+                    }
+                }
+            };
+            if (scrollElement_1) {
+                animate_1(Date.now(), scrollElement_1.scrollTop, elem.offsetTop, scrollDuration);
             }
             else {
-                if (scrollComplete) {
-                    scrollComplete();
-                }
+                elem.scrollIntoView({ behavior: "smooth", block: "start" });
             }
-        };
-        if (scrollElement) {
-            animate(Date.now(), scrollElement.scrollTop, elem.offsetTop, scrollDuration);
-        }
-        else {
-            elem.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
     return ScrollHelper;
