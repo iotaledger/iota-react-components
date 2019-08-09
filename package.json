@@ -11,11 +11,11 @@
     "dependencies": {
         "classnames": "^2.2.6",
         "iota-css-theme": "git+https://github.com/iotaledger/iota-css-theme.git",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
         "react-lottie": "^1.2.3",
         "react-qr-reader": "^2.2.1",
-        "react-router-dom": "^4.3.1",
+        "react-router-dom": "^5.0.1",
         "react-scripts": "^3.0.1"
     },
     "scripts": {
@@ -32,10 +32,10 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "@types/classnames": "^2.2.8",
-        "@types/node": "^12.0.10",
-        "@types/react": "^16.8.22",
-        "@types/react-dom": "^16.8.4",
+        "@types/classnames": "^2.2.9",
+        "@types/node": "^12.7.1",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.8.5",
         "@types/react-lottie": "^1.2.2",
         "@types/react-qr-reader": "^2.1.2",
         "@types/react-router-dom": "^4.3.4",
@@ -45,7 +45,7 @@
         "tslint-eslint-rules": "^5.4.0",
         "tslint-microsoft-contrib": "^6.2.0",
         "tslint-react": "^4.0.0",
-        "typescript": "^3.5.2"
+        "typescript": "^3.5.3"
     },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
