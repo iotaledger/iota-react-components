@@ -122,7 +122,7 @@ var SideMenu = /** @class */ (function (_super) {
     SideMenu.prototype.handleHeadingClick = function (index) {
         this.setState({
             items: this.state.items.map(function (item, ind) {
-                return (ind === index ? __assign({}, item, { isExpanded: !item.isExpanded }) : __assign({}, item, { isExpanded: false }));
+                return (ind === index ? __assign(__assign({}, item), { isExpanded: !item.isExpanded }) : __assign(__assign({}, item), { isExpanded: false }));
             })
         });
     };

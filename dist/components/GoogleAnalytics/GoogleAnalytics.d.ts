@@ -33,4 +33,4 @@ export declare class GoogleAnalyticsWithoutRouter extends React.Component<Google
      */
     private pageView;
 }
-export declare const GoogleAnalytics: React.ComponentClass<Pick<GoogleAnalyticsProps, "id">, any>;
+export declare const GoogleAnalytics: React.ComponentClass<Pick<GoogleAnalyticsProps, "id">, any> & import("react-router").WithRouterStatics<typeof GoogleAnalyticsWithoutRouter>;

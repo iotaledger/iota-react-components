@@ -31,7 +31,7 @@ export class GoogleAnalyticsWithoutRouter extends React.Component<GoogleAnalytic
      * @param prevProps The previous properties.
      */
     public componentDidUpdate(prevProps: GoogleAnalyticsProps): void {
-        if (this.props.id !== prevProps.id && this.props.id) {
+        if (this.props.id !== prevProps.id && this.props.id && this.props.id.trim().length > 0 && this.props.id !== "GOOGLE-ANALYTICS-ID") {
             const scriptGtag = document.createElement("script");
             scriptGtag.text = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
