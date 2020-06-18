@@ -42,3 +42,4 @@ __export(require("./components/Success/Success"));
 __export(require("./components/Text/Text"));
 __export(require("./utils/clipboardHelper"));
 __export(require("./utils/scrollHelper"));
+__export(require("./utils/foundationDataHelper"));

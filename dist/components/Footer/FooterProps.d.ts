@@ -1,4 +1,5 @@
 import * as H from "history";
+import { IFoundationData } from "../../models/IFoundationData";
 export interface FooterProps {
     /**
      * The router history component.
@@ -7,7 +8,7 @@ export interface FooterProps {
     /**
      * Section to display in the footer.
      */
-    sections: {
+    sections?: {
         /**
          * The heading for the section.
          */
@@ -29,7 +30,7 @@ export interface FooterProps {
     /**
      * The static content for the footer.
      */
-    staticContent: {
+    staticContent?: {
         /**
          * The address content.
          */
@@ -43,4 +44,8 @@ export interface FooterProps {
          */
         copyright: string[];
     };
+    /**
+     * Foundation data as a source instead of staticContent, sections.
+     */
+    foundationData?: IFoundationData;
 }

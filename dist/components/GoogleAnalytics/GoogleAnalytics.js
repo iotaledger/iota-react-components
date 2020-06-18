@@ -43,7 +43,10 @@ var GoogleAnalyticsWithoutRouter = /** @class */ (function (_super) {
      */
     GoogleAnalyticsWithoutRouter.prototype.componentDidUpdate = function (prevProps) {
         var _this = this;
-        if (this.props.id !== prevProps.id && this.props.id && this.props.id.trim().length > 0 && this.props.id !== "GOOGLE-ANALYTICS-ID") {
+        if (this.props.id !== prevProps.id &&
+            this.props.id &&
+            this.props.id.trim().length > 0 &&
+            this.props.id !== "GOOGLE-ANALYTICS-ID") {
             var scriptGtag = document.createElement("script");
             scriptGtag.text = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\n";
             document.body.appendChild(scriptGtag);

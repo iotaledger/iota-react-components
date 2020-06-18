@@ -82,3 +82,5 @@ export * from "./components/Text/Text";
 export * from "./components/Text/TextProps";
 export * from "./utils/clipboardHelper";
 export * from "./utils/scrollHelper";
+export * from "./utils/foundationDataHelper";
+export * from "./models/IFoundationData";

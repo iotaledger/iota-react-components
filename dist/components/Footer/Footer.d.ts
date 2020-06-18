@@ -1,10 +1,16 @@
 import React, { ReactNode } from "react";
 import { FooterProps } from "./FooterProps";
+import { FooterState } from "./FooterState";
 /**
  * Component to display styled footer.
  */
-export declare class Footer extends React.Component<FooterProps> {
+export declare class Footer extends React.Component<FooterProps, FooterState> {
     constructor(props: FooterProps);
+    /**
+     * The component updated so rebuild the display.
+     * @param prevProps The previous properties.
+     */
+    componentDidUpdate(prevProps: FooterProps): void;
     /**
      * Render the component.
      * @returns The node to render.
@@ -15,4 +21,10 @@ export declare class Footer extends React.Component<FooterProps> {
      * @param url The url to handle.
      */
     private handleClick;
+    /**
+     * Build the footer sections to display.
+     * @param props The props.
+     * @returns The footer sections.
+     */
+    private buildFooterSections;
 }

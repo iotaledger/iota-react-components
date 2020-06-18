@@ -24,8 +24,23 @@ var react_1 = __importDefault(require("react"));
 var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
     function Header(props) {
-        return _super.call(this, props) || this;
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            topLinks: _this.buildTopLinks(props)
+        };
+        return _this;
     }
+    /**
+     * The component updated so rebuild the display.
+     * @param prevProps The previous properties.
+     */
+    Header.prototype.componentDidUpdate = function (prevProps) {
+        if (this.props.foundationData !== prevProps.foundationData) {
+            this.setState({
+                topLinks: this.buildTopLinks(this.props)
+            });
+        }
+    };
     /**
      * Render the component.
      * @returns The node to render.
@@ -39,7 +54,7 @@ var Header = /** @class */ (function (_super) {
                         react_1.default.createElement("img", { className: "header__brand", src: this.props.logo, alt: "IOTA" })),
                     react_1.default.createElement("div", null,
                         react_1.default.createElement("div", { className: "top-header" },
-                            react_1.default.createElement("ul", { className: "top-header__items" }, this.props.topLinks.map(function (title, index) {
+                            react_1.default.createElement("ul", { className: "top-header__items" }, this.state.topLinks.map(function (title, index) {
                                 return (react_1.default.createElement("li", { key: index, className: "top-header__item" },
                                     react_1.default.createElement("a", { href: title.href, target: "_blank", rel: "noopener noreferrer" }, title.text)));
                             }))),
@@ -47,6 +62,19 @@ var Header = /** @class */ (function (_super) {
                 react_1.default.createElement("section", { className: "header__body" },
                     react_1.default.createElement("span", { className: "header__title text text--level1 text--secondary" }, this.props.title),
                     this.props.children))));
+    };
+    /**
+     * Build the top links from data or foundation.
+     * @param props The props.
+     * @returns The top header links.
+     */
+    Header.prototype.buildTopLinks = function (props) {
+        return props.topLinks ? props.topLinks :
+            props.foundationData && props.foundationData.sites ?
+                props.foundationData.sites.map(function (s) { return ({
+                    text: s.label,
+                    href: s.url
+                }); }) : [];
     };
     return Header;
 }(react_1.default.Component));
