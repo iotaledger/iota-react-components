@@ -100,7 +100,7 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                                         )
                                     }
                                 </section>
-                                <section className="footer-bottom-content__wrapper legal">
+                                <section className="footer-bottom-content__wrapper">
                                     {
                                         this.props.foundationData.information.map((item, idx) =>
                                             <span key={idx} className="text footer-bottom-content__item">
