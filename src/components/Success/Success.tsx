@@ -1,5 +1,5 @@
+import { Player } from "@lottiefiles/react-lottie-player";
 import React, { Component, ReactNode } from "react";
-import Lottie from "react-lottie-player";
 import successAnimation from "../../assets/success-animation.json";
 import { SuccessProps } from "./SuccessProps";
 
@@ -12,18 +12,13 @@ export class Success extends Component<SuccessProps> {
      * @returns The node to render.
      */
     public render(): ReactNode {
-        const renderSettings: unknown = {
-            viewBoxSize: "100 70 200 150"
-        };
-
         return (
             <div className="success-wrapper">
                 <div className="success-icon">
-                    <Lottie
-                        animationData={successAnimation}
-                        rendererSettings={renderSettings}
+                    <Player
+                        src={successAnimation}
                         loop={false}
-                        style={{ width: 50, height: 50 }}
+                        style={{ width: "50px", height: "50px" }}
                     />
                 </div>
                 {this.props.message && (

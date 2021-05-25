@@ -38,8 +38,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Success = void 0;
+var react_lottie_player_1 = require("@lottiefiles/react-lottie-player");
 var react_1 = __importStar(require("react"));
-var react_lottie_player_1 = __importDefault(require("react-lottie-player"));
 var success_animation_json_1 = __importDefault(require("../../assets/success-animation.json"));
 /**
  * Class to display a success animation.
@@ -54,12 +54,9 @@ var Success = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Success.prototype.render = function () {
-        var renderSettings = {
-            viewBoxSize: "100 70 200 150"
-        };
         return (react_1.default.createElement("div", { className: "success-wrapper" },
             react_1.default.createElement("div", { className: "success-icon" },
-                react_1.default.createElement(react_lottie_player_1.default, { animationData: success_animation_json_1.default, rendererSettings: renderSettings, loop: false, style: { width: 50, height: 50 } })),
+                react_1.default.createElement(react_lottie_player_1.Player, { src: success_animation_json_1.default, loop: false, style: { width: "50px", height: "50px" } })),
             this.props.message && (react_1.default.createElement("div", { className: "success-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); })))));
     };
     return Success;
