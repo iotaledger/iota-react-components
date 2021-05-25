@@ -11,7 +11,7 @@
     "dependencies": {
         "@lottiefiles/react-lottie-player": "^3.3.1",
         "classnames": "^2.2.6",
-        "iota-css-theme": "github:iotaledger/iota-css-theme#develop",
+        "iota-css-theme": "iotaledger/iota-css-theme#db6e7a1c6f85936ec07717dffd771da0e6f9fb2a",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-qr-reader": "git+https://github.com/Tobiaqs/react-qr-reader.git",
