@@ -25,7 +25,8 @@ export class FoundationDataHelper {
             try {
                 const foundationDataResponse = await fetch(FoundationDataHelper.FOUNDATION_DATA_URL);
                 FoundationDataHelper._foundationData = await foundationDataResponse.json();
-            } catch (err) {
+            } catch {
+                // eslint-disable-next-line no-console
                 console.error(`Failed loading foundation data from ${FoundationDataHelper.FOUNDATION_DATA_URL}`);
             }
         }
@@ -36,6 +37,9 @@ export class FoundationDataHelper {
     /**
      * Create the display for a value.
      * @param info The information to display.
+     * @param info.label The label for the information.
+     * @param info.value The optional value for the information.
+     * @param info.urls The optional urls.
      * @param key The key of the item.
      * @returns The element to display.
      */
@@ -66,8 +70,6 @@ export class FoundationDataHelper {
             }[];
         },
         key?: Key): React.ReactNode {
-
-        // tslint:disable: react-no-dangerous-html
         return (
             <React.Fragment key={key}>
                 {info.label && (
@@ -86,7 +88,7 @@ export class FoundationDataHelper {
                         }
                     />
                 )}
-                {info.urls && info.urls.map((link, idx) => (
+                {info.urls?.map((link, idx) => (
                     <React.Fragment key={idx}>
                         {FoundationDataHelper.buildLink(link.url, link.label)}
                         {info.urls && idx < info.urls.length - 1 && ", "}

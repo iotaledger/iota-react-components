@@ -8,9 +8,8 @@ export declare class Pagination extends Component<PaginationProps, PaginationSta
     /**
      * Create a new instance of Pagination.
      * @param props The properties.
-     * @param context The context.
      */
-    constructor(props: PaginationProps, context: {});
+    constructor(props: PaginationProps);
     /**
      * Handle the cick event.
      * @param page The page that was clicked.

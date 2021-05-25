@@ -1,3 +1,6 @@
+/**
+ * Properties for QR Reader.
+ */
 export interface QRReaderProps {
     /**
      * How should we display the reader.
@@ -7,5 +10,5 @@ export interface QRReaderProps {
     /**
      * Data from the qr reader.
      */
-    onData(data?: any): void;
+    onData(data?: unknown): void;
 }

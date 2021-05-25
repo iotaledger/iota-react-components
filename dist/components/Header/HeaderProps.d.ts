@@ -1,4 +1,7 @@
 import { IFoundationData } from "../../models/IFoundationData";
+/**
+ * Header properties.
+ */
 export interface HeaderProps {
     /**
      * The title to display in the header.

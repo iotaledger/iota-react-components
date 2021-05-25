@@ -7,15 +7,6 @@ import { ButtonContainerProps } from "./ButtonContainerProps";
  */
 export class ButtonContainer extends Component<ButtonContainerProps> {
     /**
-     * Create a new instance of ButtonContainer.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: ButtonContainerProps, context: {}) {
-        super(props, context);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */

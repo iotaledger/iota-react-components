@@ -1,3 +1,6 @@
+/**
+ * Side Menu Item model.
+ */
 export interface SideMenuItem {
     /**
      * The name of the menu.

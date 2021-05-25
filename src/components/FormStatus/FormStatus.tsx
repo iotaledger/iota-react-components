@@ -9,15 +9,6 @@ import { FormStatusProps } from "./FormStatusProps";
  */
 export class FormStatus extends Component<FormStatusProps> {
     /**
-     * Create a new instance of FormStatus.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: FormStatusProps, context: {}) {
-        super(props, context);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */

@@ -1,3 +1,6 @@
+/**
+ * State for Side Menu Item.
+ */
 export interface SideMenuStateItem {
     /**
      * The name of the menu.

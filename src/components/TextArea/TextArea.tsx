@@ -10,7 +10,6 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
     /**
      * Create a new instance of TextArea.
      * @param props The properties.
-     * @param context The context.
      */
     constructor(props: TextAreaProps) {
         super(props);
@@ -53,14 +52,12 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
         const isNavigation = keyCode >= 8 && keyCode <= 46;
         const isModified = evt.ctrlKey || evt.metaKey;
 
-        if (!isNavigation && !isModified) {
-            if (restrict === "trytes") {
-                const keyValue = String.fromCharCode(keyCode);
-                const isTrytes = /[A-Z9]/.test(keyValue);
+        if (!isNavigation && !isModified && restrict === "trytes") {
+            const keyValue = String.fromCharCode(keyCode);
+            const isTrytes = /[9A-Z]/.test(keyValue);
 
-                if (!isTrytes) {
-                    evt.preventDefault();
-                }
+            if (!isTrytes) {
+                evt.preventDefault();
             }
         }
     }

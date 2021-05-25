@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -38,6 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FoundationDataHelper = void 0;
 var react_1 = __importDefault(require("react"));
 var react_router_dom_1 = require("react-router-dom");
 /**
@@ -52,24 +54,25 @@ var FoundationDataHelper = /** @class */ (function () {
      */
     FoundationDataHelper.loadData = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var foundationDataResponse, _a, err_1;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var foundationDataResponse, _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
                         if (!!FoundationDataHelper._foundationData) return [3 /*break*/, 5];
-                        _b.label = 1;
+                        _c.label = 1;
                     case 1:
-                        _b.trys.push([1, 4, , 5]);
+                        _c.trys.push([1, 4, , 5]);
                         return [4 /*yield*/, fetch(FoundationDataHelper.FOUNDATION_DATA_URL)];
                     case 2:
-                        foundationDataResponse = _b.sent();
+                        foundationDataResponse = _c.sent();
                         _a = FoundationDataHelper;
                         return [4 /*yield*/, foundationDataResponse.json()];
                     case 3:
-                        _a._foundationData = _b.sent();
+                        _a._foundationData = _c.sent();
                         return [3 /*break*/, 5];
                     case 4:
-                        err_1 = _b.sent();
+                        _b = _c.sent();
+                        // eslint-disable-next-line no-console
                         console.error("Failed loading foundation data from " + FoundationDataHelper.FOUNDATION_DATA_URL);
                         return [3 /*break*/, 5];
                     case 5: return [2 /*return*/, FoundationDataHelper._foundationData];
@@ -80,15 +83,18 @@ var FoundationDataHelper = /** @class */ (function () {
     /**
      * Create the display for a value.
      * @param info The information to display.
+     * @param info.label The label for the information.
+     * @param info.value The optional value for the information.
+     * @param info.urls The optional urls.
      * @param key The key of the item.
      * @returns The element to display.
      */
     FoundationDataHelper.createValue = function (info, key) {
-        // tslint:disable: react-no-dangerous-html
+        var _a;
         return (react_1.default.createElement(react_1.default.Fragment, { key: key },
             info.label && (react_1.default.createElement("span", { className: "data-label", dangerouslySetInnerHTML: { __html: FoundationDataHelper.buildLines(info.label) } })),
-            info.value && (react_1.default.createElement("span", { className: "data-value", dangerouslySetInnerHTML: { __html: FoundationDataHelper.buildLines(info.value) } })),
-            info.urls && info.urls.map(function (link, idx) { return (react_1.default.createElement(react_1.default.Fragment, { key: idx },
+            info.value && (react_1.default.createElement("span", { className: "data-value", dangerouslySetInnerHTML: { __html: FoundationDataHelper.buildLines(info.value) } })), (_a = info.urls) === null || _a === void 0 ? void 0 :
+            _a.map(function (link, idx) { return (react_1.default.createElement(react_1.default.Fragment, { key: idx },
                 FoundationDataHelper.buildLink(link.url, link.label),
                 info.urls && idx < info.urls.length - 1 && ", ")); })));
     };

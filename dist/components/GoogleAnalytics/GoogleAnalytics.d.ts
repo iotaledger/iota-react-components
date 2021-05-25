@@ -9,11 +9,6 @@ export declare class GoogleAnalyticsWithoutRouter extends React.Component<Google
      */
     private _lastSent?;
     /**
-     * Create a new instance of GoogleAnalytics.
-     * @param props The props.
-     */
-    constructor(props: GoogleAnalyticsProps);
-    /**
      * The component mounted.
      */
     componentDidMount(): void;
@@ -33,4 +28,4 @@ export declare class GoogleAnalyticsWithoutRouter extends React.Component<Google
      */
     private pageView;
 }
-export declare const GoogleAnalytics: React.ComponentClass<Pick<GoogleAnalyticsProps, "id">, any>;
+export declare const GoogleAnalytics: React.ComponentClass<Pick<GoogleAnalyticsProps, "id">, any> & import("react-router").WithRouterStatics<typeof GoogleAnalyticsWithoutRouter>;

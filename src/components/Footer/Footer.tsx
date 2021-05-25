@@ -12,6 +12,10 @@ import { FooterState } from "./FooterState";
  * Component to display styled footer.
  */
 export class Footer extends React.Component<FooterProps, FooterState> {
+    /**
+     * Create a new instance of Footer.
+     * @param props The properties.
+     */
     constructor(props: FooterProps) {
         super(props);
 
@@ -42,11 +46,12 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                 <div className="footer__wrapper">
                     <div className="footer-top-content">
                         {
-                            this.state.footerSections.map(({ heading, links }) =>
+                            this.state.footerSections.map(({ heading, links }) => (
                                 <section key={heading} className="footer-top-content__wrapper">
                                     <Heading level={3} className="footer-top-content__heading">{heading}</Heading>
                                     {
                                         links.map(({ href, text }) =>
+                                        (
                                             <React.Fragment key={text}>
                                                 {href.startsWith("http") && (
                                                     <Link
@@ -64,10 +69,13 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                                                     >
                                                         {text}
                                                     </RouterLink>
-                                                )}
+                                                )
+                                                }
                                             </React.Fragment>
+                                        )
                                         )}
                                 </section>
+                            )
                             )}
                     </div>
                     <div className="footer-top-content__dropdown-wrapper">
@@ -78,13 +86,14 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                         >
                             <option value="">Select a section</option>
                             {
-                                this.state.footerSections.map(({ heading, links }) =>
+                                this.state.footerSections.map(({ heading, links }) => (
                                     <optgroup key={heading} label={heading}>
                                         {
                                             links.map(({ href, text }) =>
                                                 <option key={text} value={href}>{text}</option>
                                             )}
                                     </optgroup>
+                                )
                                 )}
                         </Select>
                     </div>
@@ -93,19 +102,21 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                             <React.Fragment>
                                 <section className="footer-bottom-content__wrapper">
                                     {
-                                        this.props.foundationData.registeredAddress.value.map((text, idx) =>
+                                        this.props.foundationData.registeredAddress.value.map((text, idx) => (
                                             <Text key={idx} className="footer-bottom-content__item" isHtml={true}>
                                                 {text}
                                             </Text>
+                                        )
                                         )
                                     }
                                 </section>
                                 <section className="footer-bottom-content__wrapper">
                                     {
-                                        this.props.foundationData.information.map((item, idx) =>
+                                        this.props.foundationData.information.map((item, idx) => (
                                             <span key={idx} className="text footer-bottom-content__item">
                                                 {FoundationDataHelper.createValue(item)}
                                             </span>
+                                        )
                                         )
                                     }
                                 </section>
@@ -115,28 +126,31 @@ export class Footer extends React.Component<FooterProps, FooterState> {
                             <React.Fragment>
                                 <section className="footer-bottom-content__wrapper">
                                     {
-                                        this.props.staticContent.address.map((text, idx) =>
+                                        this.props.staticContent.address.map((text, idx) => (
                                             <Text key={text} className="footer-bottom-content__item" isHtml={true}>
                                                 {text}
                                             </Text>
+                                        )
                                         )
                                     }
                                 </section>
                                 <section className="footer-bottom-content__wrapper legal">
                                     {
-                                        this.props.staticContent.legal.map((text, idx) =>
+                                        this.props.staticContent.legal.map((text, idx) => (
                                             <Text key={text} className="footer-bottom-content__item" isHtml={true}>
                                                 {text}
                                             </Text>
+                                        )
                                         )
                                     }
                                 </section>
                                 <section className="footer-bottom-content__wrapper copyright">
                                     {
-                                        this.props.staticContent.copyright.map(text =>
+                                        this.props.staticContent.copyright.map(text => (
                                             <Text key={text} className="footer-bottom-content__item" isHtml={true}>
                                                 {text}
                                             </Text>
+                                        )
                                         )
                                     }
                                 </section>
@@ -212,7 +226,7 @@ export class Footer extends React.Component<FooterProps, FooterState> {
             footerSections = footerSections.concat(props.sections);
         }
 
-        if (props.foundationData && props.foundationData.footerSections) {
+        if (props.foundationData?.footerSections) {
             for (const section of props.foundationData.footerSections) {
                 footerSections.push({
                     heading: section.label,

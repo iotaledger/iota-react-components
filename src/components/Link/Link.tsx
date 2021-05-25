@@ -5,9 +5,6 @@ import { LinkProps } from "./LinkProps";
  * Component to create a link.
  */
 export class Link extends React.PureComponent<LinkProps> {
-    constructor(props: LinkProps) {
-        super(props);
-    }
     /**
      * Render the component.
      * @returns The node to render.

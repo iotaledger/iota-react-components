@@ -5,6 +5,10 @@ import { FooterState } from "./FooterState";
  * Component to display styled footer.
  */
 export declare class Footer extends React.Component<FooterProps, FooterState> {
+    /**
+     * Create a new instance of Footer.
+     * @param props The properties.
+     */
     constructor(props: FooterProps);
     /**
      * The component updated so rebuild the display.

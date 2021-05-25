@@ -20,6 +20,9 @@ export declare class FoundationDataHelper {
     /**
      * Create the display for a value.
      * @param info The information to display.
+     * @param info.label The label for the information.
+     * @param info.value The optional value for the information.
+     * @param info.urls The optional urls.
      * @param key The key of the item.
      * @returns The element to display.
      */

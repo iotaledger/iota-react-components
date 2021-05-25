@@ -7,6 +7,10 @@ import { HeaderState } from "./HeaderState";
  * Component to display a styled header.
  */
 export class Header extends React.Component<HeaderProps, HeaderState> {
+    /**
+     * Create a new instance of Header.
+     * @param props The properties.
+     */
     constructor(props: HeaderProps) {
         super(props);
 
@@ -42,8 +46,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                         <div>
                             <div className="top-header">
                                 <ul className="top-header__items">
-                                    {this.state.topLinks.map((title, index) =>
-                                        (<li key={index} className="top-header__item">
+                                    {this.state.topLinks.map((title, index) => (
+                                        <li key={index} className="top-header__item">
                                             <a
                                                 href={title.href}
                                                 target="_blank"
@@ -51,8 +55,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                                             >
                                                 {title.text}
                                             </a>
-                                        </li>)
-                                    )}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             {this.props.hamburgerClick && (
@@ -63,7 +67,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                                             this.props.hamburgerMediaQuery
                                         )
                                     }
-                                    onClick={() => this.props.hamburgerClick && this.props.hamburgerClick()}
+                                    onClick={() => this.props.hamburgerClick?.()}
                                 />
                             )}
                         </div>
@@ -92,11 +96,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
          */
         href: string;
     }[] {
-        return props.topLinks ? props.topLinks :
-            props.foundationData && props.foundationData.sites ?
-                props.foundationData.sites.map(s => ({
+        return props.topLinks
+            ? props.topLinks
+            : (props.foundationData?.sites
+                ? props.foundationData.sites.map(s => ({
                     text: s.label,
                     href: s.url
-                })) : [];
+                }))
+                : []);
     }
 }

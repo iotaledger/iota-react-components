@@ -16,7 +16,8 @@
     "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "typeRoots": ["types"]
   },
   "include": [
     "src"

@@ -6,7 +6,7 @@ import { SideMenuState } from "./SideMenuState";
  */
 export declare class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
     /**
-     * Handle key down handler;
+     * Handle key down handler.
      */
     private readonly _handleKeyDown;
     /**

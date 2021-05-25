@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ClipboardHelper = void 0;
 /**
  * Helper methods for clipbaord.
  */
@@ -29,13 +30,13 @@ var ClipboardHelper = /** @class */ (function () {
                 textArea.style.top = yPosition + "px";
                 textArea.setAttribute("readonly", "");
                 textArea.value = text;
-                document.body.appendChild(textArea);
+                document.body.append(textArea);
                 textArea.select();
                 document.execCommand("Copy");
                 textArea.remove();
                 return true;
             }
-            catch (err) {
+            catch (_a) {
                 // Not much we can do
                 return false;
             }

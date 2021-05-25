@@ -11,7 +11,6 @@ export class Input extends Component<InputProps, InputState> {
     /**
      * Create a new instance of Input.
      * @param props The properties.
-     * @param context The context.
      */
     constructor(props: InputProps) {
         super(props);
@@ -70,7 +69,7 @@ export class Input extends Component<InputProps, InputState> {
 
                 if (keyCode === 190 || keyCode === 110) {
                     const val = this.props.value as string;
-                    if (val.indexOf(".") >= 0) {
+                    if (val.includes(".")) {
                         evt.preventDefault();
                     }
                 } else if (!isDigit) {
@@ -78,7 +77,7 @@ export class Input extends Component<InputProps, InputState> {
                 }
             } else if (restrict === "trytes") {
                 const keyValue = String.fromCharCode(keyCode);
-                const isTrytes = /[A-Z9]/.test(keyValue);
+                const isTrytes = /[9A-Z]/.test(keyValue);
 
                 if (!isTrytes) {
                     evt.preventDefault();

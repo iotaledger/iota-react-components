@@ -1,3 +1,6 @@
+/**
+ * Model for the foundation data.
+ */
 export interface IFoundationData {
     /**
      * Main sites to list in header navigation.

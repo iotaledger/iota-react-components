@@ -8,9 +8,8 @@ export declare class PaginationInfo extends Component<PaginationInfoProps, Pagin
     /**
      * Create a new instance of PaginationInfo.
      * @param props The properties.
-     * @param context The context.
      */
-    constructor(props: PaginationInfoProps, context: {});
+    constructor(props: PaginationInfoProps);
     /**
      * Render the component.
      * @returns The node to render.

@@ -3,10 +3,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -16,6 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Header = void 0;
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importDefault(require("react"));
 /**
@@ -23,6 +26,10 @@ var react_1 = __importDefault(require("react"));
  */
 var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
+    /**
+     * Create a new instance of Header.
+     * @param props The properties.
+     */
     function Header(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
@@ -54,11 +61,9 @@ var Header = /** @class */ (function (_super) {
                         react_1.default.createElement("img", { className: "header__brand", src: this.props.logo, alt: "IOTA" })),
                     react_1.default.createElement("div", null,
                         react_1.default.createElement("div", { className: "top-header" },
-                            react_1.default.createElement("ul", { className: "top-header__items" }, this.state.topLinks.map(function (title, index) {
-                                return (react_1.default.createElement("li", { key: index, className: "top-header__item" },
-                                    react_1.default.createElement("a", { href: title.href, target: "_blank", rel: "noopener noreferrer" }, title.text)));
-                            }))),
-                        this.props.hamburgerClick && (react_1.default.createElement("button", { className: classnames_1.default("header__icon", this.props.hamburgerMediaQuery), onClick: function () { return _this.props.hamburgerClick && _this.props.hamburgerClick(); } })))),
+                            react_1.default.createElement("ul", { className: "top-header__items" }, this.state.topLinks.map(function (title, index) { return (react_1.default.createElement("li", { key: index, className: "top-header__item" },
+                                react_1.default.createElement("a", { href: title.href, target: "_blank", rel: "noopener noreferrer" }, title.text))); }))),
+                        this.props.hamburgerClick && (react_1.default.createElement("button", { className: classnames_1.default("header__icon", this.props.hamburgerMediaQuery), onClick: function () { var _a, _b; return (_b = (_a = _this.props).hamburgerClick) === null || _b === void 0 ? void 0 : _b.call(_a); } })))),
                 react_1.default.createElement("section", { className: "header__body" },
                     react_1.default.createElement("span", { className: "header__title text text--level1 text--secondary" }, this.props.title),
                     this.props.children))));
@@ -69,12 +74,15 @@ var Header = /** @class */ (function (_super) {
      * @returns The top header links.
      */
     Header.prototype.buildTopLinks = function (props) {
-        return props.topLinks ? props.topLinks :
-            props.foundationData && props.foundationData.sites ?
-                props.foundationData.sites.map(function (s) { return ({
+        var _a;
+        return props.topLinks
+            ? props.topLinks
+            : (((_a = props.foundationData) === null || _a === void 0 ? void 0 : _a.sites)
+                ? props.foundationData.sites.map(function (s) { return ({
                     text: s.label,
                     href: s.url
-                }); }) : [];
+                }); })
+                : []);
     };
     return Header;
 }(react_1.default.Component));

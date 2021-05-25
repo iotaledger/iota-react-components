@@ -3,10 +3,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -16,6 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Footer = void 0;
 var react_1 = __importDefault(require("react"));
 var react_router_dom_1 = require("react-router-dom");
 var foundationDataHelper_1 = require("../../utils/foundationDataHelper");
@@ -28,6 +31,10 @@ var Text_1 = require("../Text/Text");
  */
 var Footer = /** @class */ (function (_super) {
     __extends(Footer, _super);
+    /**
+     * Create a new instance of Footer.
+     * @param props The properties.
+     */
     function Footer(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
@@ -56,14 +63,14 @@ var Footer = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: "footer__wrapper" },
                 react_1.default.createElement("div", { className: "footer-top-content" }, this.state.footerSections.map(function (_a) {
                     var heading = _a.heading, links = _a.links;
-                    return react_1.default.createElement("section", { key: heading, className: "footer-top-content__wrapper" },
+                    return (react_1.default.createElement("section", { key: heading, className: "footer-top-content__wrapper" },
                         react_1.default.createElement(Heading_1.Heading, { level: 3, className: "footer-top-content__heading" }, heading),
                         links.map(function (_a) {
                             var href = _a.href, text = _a.text;
-                            return react_1.default.createElement(react_1.default.Fragment, { key: text },
+                            return (react_1.default.createElement(react_1.default.Fragment, { key: text },
                                 href.startsWith("http") && (react_1.default.createElement(Link_1.Link, { href: href, className: "footer-top-content__link", target: "_blank" }, text)),
-                                !href.startsWith("http") && (react_1.default.createElement(react_router_dom_1.Link, { to: href, className: "footer-top-content__link" }, text)));
-                        }));
+                                !href.startsWith("http") && (react_1.default.createElement(react_router_dom_1.Link, { to: href, className: "footer-top-content__link" }, text))));
+                        })));
                 })),
                 react_1.default.createElement("div", { className: "footer-top-content__dropdown-wrapper" },
                     react_1.default.createElement(Heading_1.Heading, { level: 3, className: "footer-top-content__heading" }, "Jump to a section"),
@@ -71,29 +78,19 @@ var Footer = /** @class */ (function (_super) {
                         react_1.default.createElement("option", { value: "" }, "Select a section"),
                         this.state.footerSections.map(function (_a) {
                             var heading = _a.heading, links = _a.links;
-                            return react_1.default.createElement("optgroup", { key: heading, label: heading }, links.map(function (_a) {
+                            return (react_1.default.createElement("optgroup", { key: heading, label: heading }, links.map(function (_a) {
                                 var href = _a.href, text = _a.text;
                                 return react_1.default.createElement("option", { key: text, value: href }, text);
-                            }));
+                            })));
                         }))),
                 react_1.default.createElement("div", { className: "footer-bottom-content" },
                     this.props.foundationData && (react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper" }, this.props.foundationData.registeredAddress.value.map(function (text, idx) {
-                            return react_1.default.createElement(Text_1.Text, { key: idx, className: "footer-bottom-content__item", isHtml: true }, text);
-                        })),
-                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper legal" }, this.props.foundationData.information.map(function (item, idx) {
-                            return react_1.default.createElement("span", { key: idx, className: "text footer-bottom-content__item" }, foundationDataHelper_1.FoundationDataHelper.createValue(item));
-                        })))),
+                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper" }, this.props.foundationData.registeredAddress.value.map(function (text, idx) { return (react_1.default.createElement(Text_1.Text, { key: idx, className: "footer-bottom-content__item", isHtml: true }, text)); })),
+                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper" }, this.props.foundationData.information.map(function (item, idx) { return (react_1.default.createElement("span", { key: idx, className: "text footer-bottom-content__item" }, foundationDataHelper_1.FoundationDataHelper.createValue(item))); })))),
                     this.props.staticContent && (react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper" }, this.props.staticContent.address.map(function (text, idx) {
-                            return react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text);
-                        })),
-                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper legal" }, this.props.staticContent.legal.map(function (text, idx) {
-                            return react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text);
-                        })),
-                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper copyright" }, this.props.staticContent.copyright.map(function (text) {
-                            return react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text);
-                        }))))))));
+                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper" }, this.props.staticContent.address.map(function (text, idx) { return (react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text)); })),
+                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper legal" }, this.props.staticContent.legal.map(function (text, idx) { return (react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text)); })),
+                        react_1.default.createElement("section", { className: "footer-bottom-content__wrapper copyright" }, this.props.staticContent.copyright.map(function (text) { return (react_1.default.createElement(Text_1.Text, { key: text, className: "footer-bottom-content__item", isHtml: true }, text)); }))))))));
     };
     /**
      * Handle the click from the select element in mobile view.
@@ -113,13 +110,14 @@ var Footer = /** @class */ (function (_super) {
      * @returns The footer sections.
      */
     Footer.prototype.buildFooterSections = function (props) {
+        var _a;
         var footerSections = [];
         if (props.sections) {
             footerSections = footerSections.concat(props.sections);
         }
-        if (props.foundationData && props.foundationData.footerSections) {
-            for (var _i = 0, _a = props.foundationData.footerSections; _i < _a.length; _i++) {
-                var section = _a[_i];
+        if ((_a = props.foundationData) === null || _a === void 0 ? void 0 : _a.footerSections) {
+            for (var _i = 0, _b = props.foundationData.footerSections; _i < _b.length; _i++) {
+                var section = _b[_i];
                 footerSections.push({
                     heading: section.label,
                     links: section.items.map(function (i) { return ({

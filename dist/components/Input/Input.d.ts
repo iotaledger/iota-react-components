@@ -8,7 +8,6 @@ export declare class Input extends Component<InputProps, InputState> {
     /**
      * Create a new instance of Input.
      * @param props The properties.
-     * @param context The context.
      */
     constructor(props: InputProps);
     /**

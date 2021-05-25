@@ -7,14 +7,6 @@ import { ModalProps } from "./ModalProps";
  */
 export class Modal extends Component<ModalProps> {
     /**
-     * Create a new instance of Modal.
-     * @param props The props.
-     */
-    constructor(props: ModalProps) {
-        super(props);
-    }
-
-    /**
      * The component mounted.
      */
     public componentDidMount(): void {

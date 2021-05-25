@@ -9,7 +9,7 @@ import { SideMenuStateItem } from "./SideMenuStateItem";
  */
 export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
     /**
-     * Handle key down handler;
+     * Handle key down handler.
      */
     private readonly _handleKeyDown: (event: KeyboardEvent) => void;
 
@@ -96,14 +96,14 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
                                 <span>{menuItem.name}</span>
                             </h5>
                             <div className="side-menu__list">
-                                {menuItem.items && menuItem.items.map((menuListItem, miIndex) => (
+                                {menuItem.items?.map((menuListItem, miIndex) => (
                                     <React.Fragment key={miIndex}>
                                         <div className="side-menu__sub-list">
                                             {menuListItem.name && (
                                                 <div className="side-menu-item__header">{menuListItem.name}</div>
                                             )}
                                             <ul>
-                                                {menuListItem.items && menuListItem.items.map((subItem, idx) => (
+                                                {menuListItem.items?.map((subItem, idx) => (
                                                     <li
                                                         key={idx}
                                                         className={classNames(
@@ -129,7 +129,8 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
                                     </React.Fragment>
                                 ))}
                             </div>
-                        </section>))
+                        </section>
+                    ))
                     }
                 </section>
             </div>
@@ -163,10 +164,10 @@ export class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
     private handleHeadingClick(index: number): void {
         this.setState({
             items: this.state.items.map((item, ind) =>
-                (ind === index ?
-                    { ...item, isExpanded: !item.isExpanded } :
-                    { ...item, isExpanded: false }
-                ))
+            (ind === index
+                ? { ...item, isExpanded: !item.isExpanded }
+                : { ...item, isExpanded: false }
+            ))
         });
     }
 

@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
-
+/**
+ * Properties for the Table Header Row Header.
+ */
 export interface TableHeadRowHeaderProps {
     /**
      * The children elements to display as content.

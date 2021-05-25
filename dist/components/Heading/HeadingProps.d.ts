@@ -1,4 +1,7 @@
 import { ReactNode } from "react";
+/**
+ * Properties for Heading.
+ */
 export interface HeadingProps {
     /**
      * The level for the heading.

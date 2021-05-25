@@ -5,11 +5,6 @@ import { ModalProps } from "./ModalProps";
  */
 export declare class Modal extends Component<ModalProps> {
     /**
-     * Create a new instance of Modal.
-     * @param props The props.
-     */
-    constructor(props: ModalProps);
-    /**
      * The component mounted.
      */
     componentDidMount(): void;

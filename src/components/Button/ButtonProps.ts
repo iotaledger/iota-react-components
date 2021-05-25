@@ -39,5 +39,5 @@ export interface ButtonProps {
     /**
      * Event handler triggered on click.
      */
-    onClick?: React.MouseEventHandler<any>;
+    onClick?: React.MouseEventHandler<unknown>;
 }

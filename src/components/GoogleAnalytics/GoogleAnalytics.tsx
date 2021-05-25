@@ -11,13 +11,6 @@ export class GoogleAnalyticsWithoutRouter extends React.Component<GoogleAnalytic
      * The last sent location.
      */
     private _lastSent?: string;
-    /**
-     * Create a new instance of GoogleAnalytics.
-     * @param props The props.
-     */
-    constructor(props: GoogleAnalyticsProps) {
-        super(props);
-    }
 
     /**
      * The component mounted.
@@ -40,15 +33,15 @@ export class GoogleAnalyticsWithoutRouter extends React.Component<GoogleAnalytic
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 `;
-            document.body.appendChild(scriptGtag);
+            document.body.append(scriptGtag);
 
             const script = document.createElement("script");
-            script.onload = () => {
+            script.addEventListener("load", () => {
                 this.pageView(this.props.location);
-            };
+            });
             script.async = true;
             script.src = `https://www.googletagmanager.com/gtag/js?id=${this.props.id}`;
-            document.body.appendChild(script);
+            document.body.append(script);
         }
     }
 
@@ -68,8 +61,10 @@ gtag('js', new Date());
         if (this.props.id) {
             const newLocation = location.pathname + location.search + location.hash;
             if (newLocation !== this._lastSent) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const gtag = (window as any).gtag;
                 if (typeof gtag === "function") {
+                    // eslint-disable-next-line camelcase
                     gtag("config", this.props.id, { page_path: newLocation });
                 }
                 this._lastSent = newLocation;
@@ -78,5 +73,5 @@ gtag('js', new Date());
     }
 }
 
-// tslint:disable-next-line:variable-name
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const GoogleAnalytics = withRouter(GoogleAnalyticsWithoutRouter);

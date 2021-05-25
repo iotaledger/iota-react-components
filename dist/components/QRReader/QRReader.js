@@ -3,20 +3,42 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -50,14 +72,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.QRReader = void 0;
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importStar(require("react"));
 var react_qr_reader_1 = __importDefault(require("react-qr-reader"));
@@ -92,7 +108,7 @@ var QRReader = /** @class */ (function (_super) {
                     case 0: return [4 /*yield*/, this.retrieve("qrCameraFacingMode")];
                     case 1:
                         qrCameraFacingMode = _a.sent();
-                        qrCameraFacingMode = qrCameraFacingMode || "environment";
+                        qrCameraFacingMode = qrCameraFacingMode !== null && qrCameraFacingMode !== void 0 ? qrCameraFacingMode : "environment";
                         this.setState({
                             facingMode: qrCameraFacingMode
                         });
@@ -132,7 +148,7 @@ var QRReader = /** @class */ (function (_super) {
             react_1.default.createElement("div", { className: "qr-reader-overlay" }),
             react_1.default.createElement("div", { className: "qr-reader-content" },
                 react_1.default.createElement(Heading_1.Heading, { level: 1 }, "QR Scanner"),
-                react_1.default.createElement("button", { className: "qr-reader-close icon-cross", onClick: function () { return _this.handleScan(undefined); } }),
+                react_1.default.createElement("button", { className: "qr-reader-close icon-cross", onClick: function () { return _this.handleScan(); } }),
                 react_1.default.createElement(Form_1.Form, null,
                     react_1.default.createElement(Fieldset_1.Fieldset, null,
                         react_1.default.createElement("label", null, "Camera"),
@@ -162,7 +178,7 @@ var QRReader = /** @class */ (function (_super) {
                         window.localStorage.setItem(name, JSON.stringify(data));
                     }
                 }
-                catch (err) {
+                catch (_b) {
                 }
                 return [2 /*return*/];
             });
@@ -185,7 +201,7 @@ var QRReader = /** @class */ (function (_super) {
                         }
                     }
                 }
-                catch (err) {
+                catch (_b) {
                 }
                 return [2 /*return*/];
             });

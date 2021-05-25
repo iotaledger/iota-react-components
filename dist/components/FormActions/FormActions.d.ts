@@ -5,12 +5,6 @@ import { FormActionsProps } from "./FormActionsProps";
  */
 export declare class FormActions extends Component<FormActionsProps> {
     /**
-     * Create a new instance of FormActions.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: FormActionsProps, context: {});
-    /**
      * Render the component.
      * @returns The node to render.
      */

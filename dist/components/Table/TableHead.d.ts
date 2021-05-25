@@ -5,11 +5,6 @@ import { TableHeadProps } from "./TableHeadProps";
  */
 export declare class TableHead extends React.PureComponent<TableHeadProps> {
     /**
-     * Create a new instance of TableHead.
-     * @param props The properties.
-     */
-    constructor(props: TableHeadProps);
-    /**
      * Render the component.
      * @returns The node to render.
      */

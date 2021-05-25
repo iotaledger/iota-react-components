@@ -1,5 +1,8 @@
 import { StatusMessageColor } from "./StatusMessageColor";
 
+/**
+ * Status message properties.
+ */
 export interface StatusMessageProps {
     /**
      * The text to display in the status message.

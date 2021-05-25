@@ -22,7 +22,7 @@ export declare class QRReader extends Component<QRReaderProps, QRReaderState> {
      * Handle the scanner data.
      * @param data The data.
      */
-    handleScan(data: any): void;
+    handleScan(data?: unknown): void;
     /**
      * Handle error from scanner.
      */

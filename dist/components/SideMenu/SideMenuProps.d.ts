@@ -1,5 +1,8 @@
 import * as H from "history";
 import { SideMenuItem } from "./SideMenuItem";
+/**
+ * Properties for Side Menu.
+ */
 export interface SideMenuProps {
     /**
      * The router history component.

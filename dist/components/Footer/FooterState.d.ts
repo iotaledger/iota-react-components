@@ -1,3 +1,6 @@
+/**
+ * State for the footer component.
+ */
 export interface FooterState {
     /**
      * Section to display in the footer.

@@ -5,11 +5,6 @@ import { TableProps } from "./TableProps";
  */
 export declare class Table extends React.PureComponent<TableProps> {
     /**
-     * Create a new instance of Table.
-     * @param props The properties.
-     */
-    constructor(props: TableProps);
-    /**
      * Render the component.
      * @returns The node to render.
      */

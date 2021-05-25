@@ -1,5 +1,8 @@
 import { ReactNode } from "react";
 
+/**
+ * Properties for the table component.
+ */
 export interface TableProps {
     /**
      * The children elements to display as content.

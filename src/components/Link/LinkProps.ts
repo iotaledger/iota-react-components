@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 
+/**
+ * Properties for Link.
+ */
 export interface LinkProps {
     /**
      * The children elements to display as content.
      */
-
     children: ReactNode | ReactNode[];
     /**
      * The href to open.

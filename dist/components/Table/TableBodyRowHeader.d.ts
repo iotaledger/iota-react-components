@@ -5,11 +5,6 @@ import { TableBodyRowHeaderProps } from "./TableBodyRowHeaderProps";
  */
 export declare class TableBodyRowHeader extends React.PureComponent<TableBodyRowHeaderProps> {
     /**
-     * Create a new instance of TableBodyRowHeader.
-     * @param props The properties.
-     */
-    constructor(props: TableBodyRowHeaderProps);
-    /**
      * Render the component.
      * @returns The node to render.
      */

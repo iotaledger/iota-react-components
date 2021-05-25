@@ -36,10 +36,10 @@ export class TableBodyRowData extends React.PureComponent<TableBodyRowDataProps,
             if (myIndex >= 0) {
                 const table = thisDom.closest("table") as HTMLTableElement;
 
-                if (table && table.tHead && table.tHead.rows && table.tHead.rows.length > 0) {
+                if (table?.tHead?.rows && table.tHead.rows.length > 0) {
                     const row = table.tHead.rows[0];
 
-                    if (row && row.children && row.children.length >= myIndex) {
+                    if (row?.children && row.children.length >= myIndex) {
                         this.setState({ inlineHeader: row.children[myIndex].innerHTML });
                     }
                 }

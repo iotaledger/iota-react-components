@@ -8,7 +8,7 @@ export class ScrollHelper {
     public static scrollRoot(): void {
         const root = document.querySelector("#root");
         if (root) {
-            ScrollHelper.scrollIntoView(<HTMLElement>root, 300);
+            ScrollHelper.scrollIntoView(root as HTMLElement, 300);
         }
     }
 
@@ -24,7 +24,7 @@ export class ScrollHelper {
         scrollComplete?: () => void): void {
         const elem = document.querySelector(selector);
         if (elem) {
-            ScrollHelper.scrollIntoView(<HTMLElement>elem, scrollDuration, scrollComplete);
+            ScrollHelper.scrollIntoView(elem as HTMLElement, scrollDuration, scrollComplete);
         }
     }
 
@@ -36,7 +36,7 @@ export class ScrollHelper {
      */
     public static scrollIntoView(elem: HTMLElement, scrollDuration: number = 1000, scrollComplete?: () => void): void {
         if (elem) {
-            const scrollElement = document.scrollingElement || document.body || document.documentElement;
+            const scrollElement = (document.scrollingElement ?? document.body) || document.documentElement;
 
             const animate = (start: number, from: number, to: number, duration: number) => {
                 const time = Math.min(1, ((Date.now() - start) / duration));
@@ -46,10 +46,8 @@ export class ScrollHelper {
 
                 if (time < 1) {
                     setTimeout(() => animate(start, from, to, duration), 0);
-                } else {
-                    if (scrollComplete) {
-                        scrollComplete();
-                    }
+                } else if (scrollComplete) {
+                    scrollComplete();
                 }
             };
 

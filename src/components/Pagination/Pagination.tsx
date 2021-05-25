@@ -10,10 +10,9 @@ export class Pagination extends Component<PaginationProps, PaginationState> {
     /**
      * Create a new instance of Pagination.
      * @param props The properties.
-     * @param context The context.
      */
-    constructor(props: PaginationProps, context: {}) {
-        super(props, context);
+    constructor(props: PaginationProps) {
+        super(props);
 
         this.state = {
             pages: this.calculatePagination()
@@ -64,7 +63,7 @@ export class Pagination extends Component<PaginationProps, PaginationState> {
     private calculatePagination(): number[] {
         const current = this.props.page;
         const last = this.props.totalPages;
-        const delta = this.props.delta || 2;
+        const delta = this.props.delta ?? 2;
         const left = current - delta;
         const right = current + delta + 1;
         const range = [];
@@ -72,7 +71,7 @@ export class Pagination extends Component<PaginationProps, PaginationState> {
         let l;
 
         for (let i = 1; i <= last; i++) {
-            if (i === 1 || i === last || i >= left && i < right) {
+            if (i === 1 || i === last || (i >= left && i < right)) {
                 range.push(i);
             }
         }

@@ -8,7 +8,6 @@ export declare class TextArea extends Component<TextAreaProps, TextAreaState> {
     /**
      * Create a new instance of TextArea.
      * @param props The properties.
-     * @param context The context.
      */
     constructor(props: TextAreaProps);
     /**

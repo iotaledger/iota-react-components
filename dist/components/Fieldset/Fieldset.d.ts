@@ -5,12 +5,6 @@ import { FieldsetProps } from "./FieldsetProps";
  */
 export declare class Fieldset extends Component<FieldsetProps> {
     /**
-     * Create a new instance of Fieldset.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: FieldsetProps, context: {});
-    /**
      * Render the component.
      * @returns The node to render.
      */

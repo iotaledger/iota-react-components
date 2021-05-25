@@ -1,5 +1,8 @@
 import { IFoundationData } from "../../models/IFoundationData";
 
+/**
+ * Header properties.
+ */
 export interface HeaderProps {
     /**
      * The title to display in the header.
@@ -9,6 +12,7 @@ export interface HeaderProps {
     /**
      * The logo to display in the header.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logo: any;
 
     /**

@@ -5,11 +5,6 @@ import { TableBodyProps } from "./TableBodyProps";
  */
 export declare class TableBody extends React.PureComponent<TableBodyProps> {
     /**
-     * Create a new instance of TableBody.
-     * @param props The properties.
-     */
-    constructor(props: TableBodyProps);
-    /**
      * Render the component.
      * @returns The node to render.
      */

@@ -1,6 +1,8 @@
 import * as H from "history";
 import { IFoundationData } from "../../models/IFoundationData";
-
+/**
+ * Properties for the footer component.
+ */
 export interface FooterProps {
     /**
      * The router history component.

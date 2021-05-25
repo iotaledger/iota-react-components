@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import Lottie from "react-lottie";
+import Lottie from "react-lottie-player";
 import successAnimation from "../../assets/success-animation.json";
 import { SuccessProps } from "./SuccessProps";
 
@@ -8,34 +8,22 @@ import { SuccessProps } from "./SuccessProps";
  */
 export class Success extends Component<SuccessProps> {
     /**
-     * Create a new instance of Success.
-     * @param props The props.
-     */
-    constructor(props: SuccessProps) {
-        super(props);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */
     public render(): ReactNode {
-        const renderSettings: any = {
+        const renderSettings: unknown = {
             viewBoxSize: "100 70 200 150"
-        };
-        const successOptions = {
-            animationData: successAnimation,
-            loop: false,
-            rendererSettings: renderSettings
         };
 
         return (
             <div className="success-wrapper">
                 <div className="success-icon">
                     <Lottie
-                        options={successOptions}
-                        width={50}
-                        height={50}
+                        animationData={successAnimation}
+                        rendererSettings={renderSettings}
+                        loop={false}
+                        style={{ width: 50, height: 50 }}
                     />
                 </div>
                 {this.props.message && (

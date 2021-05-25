@@ -29,7 +29,7 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
      */
     public async componentDidMount(): Promise<void> {
         let qrCameraFacingMode = await this.retrieve<"environment" | "user">("qrCameraFacingMode");
-        qrCameraFacingMode = qrCameraFacingMode || "environment";
+        qrCameraFacingMode = qrCameraFacingMode ?? "environment";
 
         this.setState({
             facingMode: qrCameraFacingMode
@@ -49,7 +49,7 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
      * Handle the scanner data.
      * @param data The data.
      */
-    public handleScan(data: any): void {
+    public handleScan(data?: unknown): void {
         if (data !== null) {
             this.props.onData(data);
         }
@@ -79,7 +79,7 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
                 <div className="qr-reader-overlay" />
                 <div className="qr-reader-content">
                     <Heading level={1}>QR Scanner</Heading>
-                    <button className="qr-reader-close icon-cross" onClick={() => this.handleScan(undefined)} />
+                    <button className="qr-reader-close icon-cross" onClick={() => this.handleScan()} />
                     <Form>
                         <Fieldset>
                             <label>Camera</label>
@@ -123,7 +123,7 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
             if (window.localStorage) {
                 window.localStorage.setItem(name, JSON.stringify(data));
             }
-        } catch (err) {
+        } catch {
         }
     }
 
@@ -137,10 +137,10 @@ export class QRReader extends Component<QRReaderProps, QRReaderState> {
             if (window.localStorage) {
                 const data = window.localStorage.getItem(name);
                 if (data) {
-                    return JSON.parse(data);
+                    return JSON.parse(data) as T;
                 }
             }
-        } catch (err) {
+        } catch {
         }
     }
 }

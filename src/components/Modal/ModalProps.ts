@@ -1,5 +1,8 @@
 import { ReactNode } from "react";
 
+/**
+ * Properties for Modal.
+ */
 export interface ModalProps {
     /**
      * The title for the dialog.

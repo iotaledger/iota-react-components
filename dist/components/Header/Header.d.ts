@@ -5,6 +5,10 @@ import { HeaderState } from "./HeaderState";
  * Component to display a styled header.
  */
 export declare class Header extends React.Component<HeaderProps, HeaderState> {
+    /**
+     * Create a new instance of Header.
+     * @param props The properties.
+     */
     constructor(props: HeaderProps);
     /**
      * The component updated so rebuild the display.

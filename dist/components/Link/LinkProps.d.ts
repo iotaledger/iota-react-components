@@ -1,4 +1,7 @@
 import { ReactNode } from "react";
+/**
+ * Properties for Link.
+ */
 export interface LinkProps {
     /**
      * The children elements to display as content.

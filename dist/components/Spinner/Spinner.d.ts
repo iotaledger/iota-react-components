@@ -5,11 +5,6 @@ import { SpinnerProps } from "./SpinnerProps";
  */
 export declare class Spinner extends Component<SpinnerProps> {
     /**
-     * Create a new instance of Spinner.
-     * @param props The props.
-     */
-    constructor(props: SpinnerProps);
-    /**
      * Render the component.
      * @returns The node to render.
      */

@@ -6,14 +6,6 @@ import { TableBodyRowProps } from "./TableBodyRowProps";
  */
 export class TableBodyRow extends React.PureComponent<TableBodyRowProps> {
     /**
-     * Create a new instance of TableBodyRow.
-     * @param props The properties.
-     */
-    constructor(props: TableBodyRowProps) {
-        super(props);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */

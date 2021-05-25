@@ -5,12 +5,12 @@ import { ScrollHelper } from "../../utils/scrollHelper";
 /**
  * Component to scroll to the top of the page on router navigate.
  */
-class RouterScrollTopWithoutRouter extends React.Component<RouteComponentProps<any>> {
+class RouterScrollTopWithoutRouter extends React.Component<RouteComponentProps<never>> {
     /**
      * The component updated.
      * @param prevProps The Previous props.
      */
-    public componentDidUpdate(prevProps: any): void {
+    public componentDidUpdate(prevProps: RouteComponentProps<never>): void {
         if (this.props.location !== prevProps.location) {
             ScrollHelper.scrollRoot();
         }
@@ -25,5 +25,5 @@ class RouterScrollTopWithoutRouter extends React.Component<RouteComponentProps<a
     }
 }
 
-// tslint:disable-next-line:variable-name
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const RouterScrollTop = withRouter(RouterScrollTopWithoutRouter);

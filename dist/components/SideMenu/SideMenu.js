@@ -3,10 +3,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -27,6 +29,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SideMenu = void 0;
 var classnames_1 = __importDefault(require("classnames"));
 var react_1 = __importDefault(require("react"));
 /**
@@ -88,14 +91,20 @@ var SideMenu = /** @class */ (function (_super) {
                 react_1.default.createElement("h4", { className: "side-menu__caption" },
                     react_1.default.createElement("span", null, "Navigation"),
                     react_1.default.createElement("button", { className: "side-menu__close", onClick: function () { return _this.handleCloseClick(); } })),
-                this.state.items.map(function (menuItem, index) { return (react_1.default.createElement("section", { key: index, className: classnames_1.default("side-menu__group", { "side-menu__group--expanded": menuItem.isExpanded }, { "side-menu__group--selected": menuItem.isSelected }) },
-                    react_1.default.createElement("h5", { className: "side-menu__heading", onClick: function () { return _this.handleHeadingClick(index); } },
-                        react_1.default.createElement("span", null, menuItem.name)),
-                    react_1.default.createElement("div", { className: "side-menu__list" }, menuItem.items && menuItem.items.map(function (menuListItem, miIndex) { return (react_1.default.createElement(react_1.default.Fragment, { key: miIndex },
-                        react_1.default.createElement("div", { className: "side-menu__sub-list" },
-                            menuListItem.name && (react_1.default.createElement("div", { className: "side-menu-item__header" }, menuListItem.name)),
-                            react_1.default.createElement("ul", null, menuListItem.items && menuListItem.items.map(function (subItem, idx) { return (react_1.default.createElement("li", { key: idx, className: classnames_1.default("side-menu-item", { "side-menu-item--active": subItem.isSelected }) },
-                                react_1.default.createElement("a", { onClick: function () { return _this.handleClick(subItem.link); }, className: classnames_1.default({ "side-menu-item--active": subItem.isSelected }), role: "link" }, subItem.name))); }))))); })))); }))));
+                this.state.items.map(function (menuItem, index) {
+                    var _a;
+                    return (react_1.default.createElement("section", { key: index, className: classnames_1.default("side-menu__group", { "side-menu__group--expanded": menuItem.isExpanded }, { "side-menu__group--selected": menuItem.isSelected }) },
+                        react_1.default.createElement("h5", { className: "side-menu__heading", onClick: function () { return _this.handleHeadingClick(index); } },
+                            react_1.default.createElement("span", null, menuItem.name)),
+                        react_1.default.createElement("div", { className: "side-menu__list" }, (_a = menuItem.items) === null || _a === void 0 ? void 0 : _a.map(function (menuListItem, miIndex) {
+                            var _a;
+                            return (react_1.default.createElement(react_1.default.Fragment, { key: miIndex },
+                                react_1.default.createElement("div", { className: "side-menu__sub-list" },
+                                    menuListItem.name && (react_1.default.createElement("div", { className: "side-menu-item__header" }, menuListItem.name)),
+                                    react_1.default.createElement("ul", null, (_a = menuListItem.items) === null || _a === void 0 ? void 0 : _a.map(function (subItem, idx) { return (react_1.default.createElement("li", { key: idx, className: classnames_1.default("side-menu-item", { "side-menu-item--active": subItem.isSelected }) },
+                                        react_1.default.createElement("a", { onClick: function () { return _this.handleClick(subItem.link); }, className: classnames_1.default({ "side-menu-item--active": subItem.isSelected }), role: "link" }, subItem.name))); })))));
+                        }))));
+                }))));
     };
     /**
      * Handle closing the menu.
@@ -122,7 +131,8 @@ var SideMenu = /** @class */ (function (_super) {
     SideMenu.prototype.handleHeadingClick = function (index) {
         this.setState({
             items: this.state.items.map(function (item, ind) {
-                return (ind === index ? __assign({}, item, { isExpanded: !item.isExpanded }) : __assign({}, item, { isExpanded: false }));
+                return (ind === index
+                    ? __assign(__assign({}, item), { isExpanded: !item.isExpanded }) : __assign(__assign({}, item), { isExpanded: false }));
             })
         });
     };

@@ -7,15 +7,6 @@ import { ButtonProps } from "./ButtonProps";
  */
 export class Button extends Component<ButtonProps> {
     /**
-     * Create a new instance of Button.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: ButtonProps, context: {}) {
-        super(props, context);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */

@@ -1,3 +1,6 @@
+/**
+ * State for Header.
+ */
 export interface HeaderState {
     /**
      * The links to display at the top of the header.

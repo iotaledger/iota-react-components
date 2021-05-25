@@ -6,15 +6,6 @@ import { FormProps } from "./FormProps";
  */
 export class Form extends Component<FormProps> {
     /**
-     * Create a new instance of Form.
-     * @param props The properties.
-     * @param context The context.
-     */
-    constructor(props: FormProps, context: {}) {
-        super(props, context);
-    }
-
-    /**
      * Render the component.
      * @returns The node to render.
      */
