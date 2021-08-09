@@ -12,8 +12,7 @@ export class Success extends Component<SuccessProps> {
      * @returns The node to render.
      */
     public render(): ReactNode {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const renderSettings: any = {
+        const renderSettings = {
             viewBoxSize: "100 70 200 150"
         };
 
@@ -23,10 +22,11 @@ export class Success extends Component<SuccessProps> {
                     <Lottie
                         animationData={successAnimation}
                         rendererSettings={renderSettings}
+                        play={true}
                         loop={false}
                         style={{
-                            width: "50px",
-                            height: "50px"
+                            width: 50,
+                            height: 50
                         }}
                     />
                 </div>

@@ -54,15 +54,14 @@ var Success = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Success.prototype.render = function () {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         var renderSettings = {
             viewBoxSize: "100 70 200 150"
         };
         return (react_1.default.createElement("div", { className: "success-wrapper" },
             react_1.default.createElement("div", { className: "success-icon" },
-                react_1.default.createElement(react_lottie_player_1.default, { animationData: success_animation_json_1.default, rendererSettings: renderSettings, loop: false, style: {
-                        width: "50px",
-                        height: "50px"
+                react_1.default.createElement(react_lottie_player_1.default, { animationData: success_animation_json_1.default, rendererSettings: renderSettings, play: true, loop: false, style: {
+                        width: 50,
+                        height: 50
                     } })),
             this.props.message && (react_1.default.createElement("div", { className: "success-message" }, this.props.message.split("\n").map(function (s, idx) { return (react_1.default.createElement("span", { key: idx }, s)); })))));
     };

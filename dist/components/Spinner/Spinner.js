@@ -54,14 +54,13 @@ var Spinner = /** @class */ (function (_super) {
      * @returns The node to render.
      */
     Spinner.prototype.render = function () {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         var renderSettings = {
             viewBoxSize: "100 70 200 150"
         };
         return (react_1.default.createElement("div", { className: "spinner", style: { display: "inline-block" } },
-            react_1.default.createElement(react_lottie_player_1.default, { animationData: spinner_loader_json_1.default, rendererSettings: renderSettings, style: {
-                    width: (this.props.size === "small" ? 25 : 50) + "px",
-                    height: (this.props.size === "small" ? 25 : 50) + "px"
+            react_1.default.createElement(react_lottie_player_1.default, { animationData: spinner_loader_json_1.default, rendererSettings: renderSettings, play: true, style: {
+                    width: this.props.size === "small" ? 25 : 50,
+                    height: this.props.size === "small" ? 25 : 50
                 } })));
     };
     return Spinner;

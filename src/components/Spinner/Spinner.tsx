@@ -12,8 +12,7 @@ export class Spinner extends Component<SpinnerProps> {
      * @returns The node to render.
      */
     public render(): ReactNode {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const renderSettings: any = {
+        const renderSettings = {
             viewBoxSize: "100 70 200 150"
         };
 
@@ -22,9 +21,10 @@ export class Spinner extends Component<SpinnerProps> {
                 <Lottie
                     animationData={spinnerLoader}
                     rendererSettings={renderSettings}
+                    play={true}
                     style={{
-                        width: `${this.props.size === "small" ? 25 : 50}px`,
-                        height: `${this.props.size === "small" ? 25 : 50}px`
+                        width: this.props.size === "small" ? 25 : 50,
+                        height: this.props.size === "small" ? 25 : 50
                     }}
                 />
             </div>
