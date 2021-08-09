@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Spinner = void 0;
 var react_1 = __importStar(require("react"));
-var react_lottie_1 = __importDefault(require("react-lottie"));
+var react_lottie_player_1 = __importDefault(require("react-lottie-player"));
 var spinner_loader_json_1 = __importDefault(require("../../assets/spinner-loader.json"));
 /**
  * Class to display a spinner.
@@ -58,12 +58,11 @@ var Spinner = /** @class */ (function (_super) {
         var renderSettings = {
             viewBoxSize: "100 70 200 150"
         };
-        var spinOptions = {
-            animationData: spinner_loader_json_1.default,
-            rendererSettings: renderSettings
-        };
         return (react_1.default.createElement("div", { className: "spinner", style: { display: "inline-block" } },
-            react_1.default.createElement(react_lottie_1.default, { options: spinOptions, width: this.props.size === "small" ? 25 : 50, height: this.props.size === "small" ? 25 : 50 })));
+            react_1.default.createElement(react_lottie_player_1.default, { animationData: spinner_loader_json_1.default, rendererSettings: renderSettings, style: {
+                    width: (this.props.size === "small" ? 25 : 50) + "px",
+                    height: (this.props.size === "small" ? 25 : 50) + "px"
+                } })));
     };
     return Spinner;
 }(react_1.Component));
